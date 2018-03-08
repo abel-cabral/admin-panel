@@ -1,49 +1,15 @@
-<script src="assets/js/modernizr.min.js"></script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/moment.min.js"></script>
-    
-<!-- MEUS SCRIPTS -->
-    <script src="./js/main.js"></script>
-<!-- FIM -->
+$(document).ready(function() {
+	// data-tables
+	$('#example1').DataTable();
+			
+	// counter-up
+	$('.counter').counterUp({
+		delay: 10,
+		time: 600
+	});
+} );		
 
-
-
-
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-
-<script src="assets/js/detect.js"></script>
-<script src="assets/js/fastclick.js"></script>
-<script src="assets/js/jquery.blockUI.js"></script>
-<script src="assets/js/jquery.nicescroll.js"></script>
-
-<!-- App js -->
-<script src="assets/js/pikeadmin.js"></script>
-
-<!-- BEGIN Java Script for this page -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-
-	<!-- Counter-Up-->
-	<script src="assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
-	<script src="assets/plugins/counterup/jquery.counterup.min.js"></script>			
-
-	<script>
-		$(document).ready(function() {
-			// data-tables
-			$('#example1').DataTable();
-					
-			// counter-up
-			$('.counter').counterUp({
-				delay: 10,
-				time: 600
-			});
-		} );		
-	</script>
-	
-	<script>
-	var ctx1 = document.getElementById("lineChart").getContext('2d');
+var ctx1 = document.getElementById("lineChart").getContext('2d');
 	var lineChart = new Chart(ctx1, {
 		type: 'bar',
 		data: {
@@ -137,4 +103,3 @@
 			}
 	 
 	});
-	</script>

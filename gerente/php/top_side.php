@@ -15,7 +15,10 @@
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown">
                                 <!-- item-->
                                 <div class="dropdown-item noti-title">
-                                    <h5 class="text-overflow"><small>Olá, PHP</small> </h5>
+                                    
+                                    <!-- ADICIONA NOME DO USUARIO E CONVERTE PARA MAIÚSCULO -->
+                                    
+                                    <h5 class="text-overflow"><small>Olá, <?php echo  ucfirst($_SESSION['resultado']['nome']); ?></small> </h5>
                                 </div>
 
                                 <!-- item-->
@@ -24,7 +27,7 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
+                                <a href="#" class="dropdown-item notify-item" id='deslogue'>
                                     <i class="fa fa-power-off"></i> <span>Sair</span>
                                 </a>
 																

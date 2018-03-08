@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
-<form class="form-horizontal jumbotron">
+<form class="form-horizontal jumbotron" method='POST' action='#'>
 
 
 <!-- Form Name -->
@@ -26,13 +26,20 @@
   </div>
 </div>
 
+<!-- Chama função no PHP -->
+<input name='status' value='logue' type='hidden'>
+
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for=""></label>
   <div class="col-md-4">
-    <button id="logar" name="" class="btn btn-lg btn-success">Entrar</button>
+    <button id="logar" class="btn btn-lg btn-success">Entrar</button>
   </div>
 </div>
 
 </fieldset>
 </form>
+
+<div id="escreva">
+        
+</div>

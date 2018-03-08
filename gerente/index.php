@@ -11,12 +11,22 @@
 
 	<!-- top bar navigation -->
     <?php 
-    $_SESSION['usuario'] = false;
+    session_start();
+
+    if(@$_SESSION['status']){
+        $_SESSION['usuario'] = true;    
+    }else{
+        $_SESSION['usuario'] = false;
+    }
+
+    
 
     if($_SESSION['usuario']){
         include_once('./php/top_side.php');//top
         include_once('./php/left_side.php');//left
     }
+
+    
     ?>
 	
 
@@ -33,8 +43,7 @@
                 }
                 
             ?>
-			<div class="container-fluid">
-					
+			<div class="container-fluid">					
 						
             </div>
 			<!-- END container-fluid -->
@@ -53,7 +62,7 @@
 </div>
 <!-- JAVA SCRIPTS -->
     <?php
-        include_once('./html/scripts.html');
+        include_once('./scripts.html');
     ?>
 <!-- END Java Script  -->
 
