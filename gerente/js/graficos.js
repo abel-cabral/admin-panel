@@ -1,3 +1,4 @@
+//Espera Tudo Carregar
 $(document).ready(function() {
 	// data-tables
 	$('#example1').DataTable();
@@ -7,6 +8,12 @@ $(document).ready(function() {
 		delay: 10,
 		time: 600
 	});
+
+
+
+
+
+
 } );		
 
 var ctx1 = document.getElementById("lineChart").getContext('2d');
@@ -103,6 +110,4 @@ var ctx1 = document.getElementById("lineChart").getContext('2d');
 			}
 	 
 	});
-
-
 

@@ -24,6 +24,19 @@
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
         }
 
+        //Lista de Todos os Moradores
+        public function consultarTodosMoradores(){
+            $sql = "SELECT * FROM moradores";
+            $resultado = mysqli_query($this->conexao->getCon(), $sql);
+            
+            //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
+            if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
+               return $resultado; 
+            }else{//Se nao achar nada a função acaba.
+                return false;
+            }
+        }
+
         
     }//FIM DA CLASSE
 
