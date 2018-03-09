@@ -27,6 +27,9 @@ if($status == '1'){
     }
 }elseif($status == '2'){    
     session_destroy();
+}elseif($status == '3'){
+    $usuarios_index = new UsuarioDAO();
+    $buscar = $usuarios_index->cadastro(ucwords($_POST['nome']), $_POST['sexo'], $_POST['tel'], ucwords($_POST['curso']), $_POST['mensalidade'],$_POST['quarto']);
 }else{    
     $_SESSION['diag'] = $status;
 }

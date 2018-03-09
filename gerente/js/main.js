@@ -30,7 +30,7 @@ $( document ).ready(function() {
     })
   });
   
-  /*
+  
    //Cadastrar Moradores  
   $('#form_morador').submit(function(){    
       $.ajax({
@@ -40,12 +40,11 @@ $( document ).ready(function() {
       cache: false,
       dataType: 'JSON',
       success: function(){          
-        console.log('Gravado');
-        location.reload();        
+        window.location = "./index.php";      
       }      
     })      
   });
- */
+ 
     
   });
 

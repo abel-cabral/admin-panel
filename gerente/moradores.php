@@ -1,3 +1,7 @@
+<?php
+    include_once('./php/verifica_sessao.php');    
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,22 +15,8 @@
 
 	<!-- top bar navigation -->
     <?php 
-    session_start();
-
-    if(@$_SESSION['status']){
-        $_SESSION['usuario'] = true;    
-    }else{
-        $_SESSION['usuario'] = false;
-    }
-
-    
-
-    if($_SESSION['usuario']){
         include_once('./php/top_side.php');//top
-        include_once('./php/left_side.php');//left
-    }
-
-    
+        include_once('./php/left_side.php');//left    
     ?>
 	
 
@@ -61,7 +51,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
 
-                            <form action="./moradores.php" id='form_morador' method="POST" accept-charset="utf-8">
+                            <form action="" id='form_morador' method="POST" accept-charset="utf-8">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Cadastro de Morador</h5>
                                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
@@ -220,7 +210,7 @@
                                         </div>
 
 									</div>
-									<input name='status' value='add_morador' type='hidden'>   
+									<input name='status' value='3' type='hidden'>   
                                 </div>
 
                                 <div class="modal-footer">
