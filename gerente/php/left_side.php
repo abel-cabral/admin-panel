@@ -7,7 +7,7 @@
 			<ul>
 
 					<li class="submenu">
-						<a class="active" href="index.html"><i class="fa fa-fw fa-bars"></i><span> Dashboard </span> </a>
+						<a class="active" href="./index.php"><i class="fa fa-fw fa-bars"></i><span> Dashboard </span> </a>
                     </li>
 
 					<li class="submenu">
@@ -100,10 +100,9 @@
                     </li>
 
 					<li class="submenu">
-                        <a class="pro" href="#"><i class="fa fa-fw fa-star"></i><span> Pike Admin PRO </span> <span class="menu-arrow"></span></a>
+                        <a class="pro" href="#"><i class="fa fa-fw fa-star"></i><span> Atualizar Vagas </span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">								
-                                <li><a target="_blank" href="https://www.pikeadmin.com/pike-admin-pro">Admin PRO features</a></li>
-								<li><a href="pro-settings.html">Settings</a></li>
+                                <li><a href="./moradores.php" id="controle_moradores">Controle de Moradores</a></li>
 								<li><a href="pro-profile.html">My Profile</a></li>
                                 <li><a href="pro-users.html">Users</a></li>
                                 <li><a href="pro-articles.html">Articles</a></li>

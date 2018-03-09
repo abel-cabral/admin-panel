@@ -1,28 +1,26 @@
 $( document ).ready(function() {
   
   //Logar
-  $('form').on('submit', function(e){
-      e.preventDefault();
-      var capturas = $(this).serialize();//Aqui minha função busca e monta um objeto com os dados colidos no FORM 
-      $.ajax({
-        type: 'POST',
-        url: './php/funcoes.php',        
-        data: $('form').serialize(),
-        success: function(){
-          location.reload();
-        },
-        error: function(){  
-         alert("Não foi Possível chamar funcoes.php");
-        }
-      })      
+  $("form").submit( function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: './php/funcoes.php',
+      data: $('form').serialize(),
+      success: function (data) {
+        console.log(data);
+        window.location = "./index.php";
+      }
     });
+});
   
   //Deslogar
   $('#deslogue').click(function(){
     $.ajax({
       type: 'POST',
       url: './php/funcoes.php',
-      data: {status: "deslogue"},
+      data: "status=2",
+      cache: false,
       success: function(){
         location.reload();
       },
@@ -31,9 +29,23 @@ $( document ).ready(function() {
       }
     })
   });
-    
-    
- 
+  
+  /*
+   //Cadastrar Moradores  
+  $('#form_morador').submit(function(){    
+      $.ajax({
+      type: 'POST',       
+      url: './php/funcoes.php',        
+      data: $('#form_morador').serialize(),
+      cache: false,
+      dataType: 'JSON',
+      success: function(){          
+        console.log('Gravado');
+        location.reload();        
+      }      
+    })      
+  });
+ */
     
   });
 
