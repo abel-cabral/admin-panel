@@ -1,5 +1,4 @@
-<?php
-    header('Content-Type: text/html; charset=utf-8');
+<?php    
     include_once('./php/verifica_sessao.php');    
 ?>
 <!DOCTYPE html>
@@ -45,7 +44,7 @@
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <!--Formulário de Cadastro de Novos Moradores-->
-                          <form action="./php/funcoes.php" id='form_morador' method="POST">
+                          <form action="" id='form_morador' method="POST">
                             <div class="modal-header">
                               <h5 class="modal-title">Cadastro de Morador</h5>
                               <button type="button" class="close" data-dismiss="modal">

@@ -32,7 +32,18 @@ $(document).ready(function() {
   
   
    //Cadastrar Moradores  
-  
+  $('#form_morador').submit(function(e){  
+    e.preventDefault();       
+      $.ajax({
+      type: 'POST',       
+      url: './php/funcoes.php',              
+      data: $('#form_morador').serialize(),
+      cache: false,                  
+      success: function(data){         
+        location.reload();        
+      }      
+    })      
+  });
    
   });
 
