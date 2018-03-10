@@ -1,4 +1,5 @@
 <?php
+  header('Content-Type: text/html; charset=utf-8');
   session_start();  
 ?>
 
@@ -17,7 +18,7 @@
 <body>
 
     <div class="container">
-        <form class="form-horizontal jumbotron" method='POST' action=''>
+        <form class="form-horizontal jumbotron" method='POST' action='' id="form1">
 
             <!-- Form Name -->
             <legend>

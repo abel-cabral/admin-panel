@@ -3,6 +3,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <!--Header-->
   <?php include_once('./php/header.php');?>
   <!--Header-->
@@ -56,7 +57,7 @@
                                 <div class="col-lg-12">
                                   <div class="form-group">
                                     <label>Nome Completo (obrigatório)</label>
-                                    <input class="form-control" name="nome" type="text" required />
+                                    <input class="form-control" name="nome" type="text"  maxlength="119" required />
                                   </div>
                                 </div>
                               </div>
@@ -173,7 +174,7 @@
                                     <div class="col-lg-6">
                                       <div class="form-group">
                                         <label>Telefone (obrigatório)</label>
-                                        <input class="form-control" name="tel" type="number" required/>
+                                        <input class="form-control" name="tel" type="number"  maxlength="20" required/>
                                       </div>
                                     </div>
                                   </div>
@@ -181,19 +182,29 @@
                                     <div class="col-lg-6">
                                       <div class="form-group">
                                         <label>Mensalidade (obrigatório)</label>
-                                        <input class="form-control" name="mensalidade" type="number" placeholder='R$' required/>
+                                        <input class="form-control" name="mensalidade" type="number" placeholder='R$'  maxlength="10" required/>
                                       </div>
                                     </div>
                                     <div class="col-lg-6">
-                                      <div class="form-group">
-                                        <label>Situação de Moradia (obrigatório)</label>
-                                        <select name="quarto" class="form-control" required>
-                                          <option value="">-- Tipo de Quarto --</option>
-                                          <option value="Quadruplo">Quarto Quadruplo</option>
-                                          <option value="Duplo">Quarto Duplo</option>
-                                        </select>
-                                      </div>
-                                    </div>
+                                                                            <div class="form-group">
+                                                                                <label>Situação de Moradia (obrigatório)</label>
+                                                                                <select name="quarto" class="form-control" required>                                                                                
+                                                                                    <option value="">-- Local e Quarto --</option>
+                                                                                    <optgroup label="República do Centro">
+                                                                                        <option value="01">Quarto Quadruplo</option>
+                                                                                        <option value="02">Quarto Duplo</option>
+                                                                                    <optgroup label="República do Ingá">
+                                                                                        <option value="03">Quarto Quadruplo</option>
+                                                                                        <option value="04">Quarto Duplo</option>
+                                                                                    <optgroup label="República da Praia Vermelha">
+                                                                                        <option value="05">Quarto Quadruplo</option>
+                                                                                        <option value="06">Quarto Duplo</option>
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
                                   </div>
                                   <input name='status' value='3' type='hidden'>
                                   </div>
@@ -218,7 +229,8 @@
                                   <th style="width:50px">ID</th>
                                   <th>Nome Completo do Morador</th>
                                   <th style="width:130px">República</th>
-                                  <th style="width:150px">Mensalidade</th>
+                                  <th style="width:130px">Tipo de Quarto</th>
+                                  <th style="width:130px">Mensalidade</th>
                                   <th style="width:120px">Editar</th>
                                 </tr>
                               </thead>
@@ -234,9 +246,11 @@
                                     </span>
                                     <strong>{{nome}}</strong>
                                     <br />
-                                    <small>{{telefone}}</small>
+                                    <small>{{telefone}} - {{curso}}</small>
                                   </td>
 
+                                  <td>{{republica}}</td>
+                                  
                                   <td>{{quarto}}</td>
 
                                   <td> R$ {{mensalidade}} </td>

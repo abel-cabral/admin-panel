@@ -1,0 +1,64 @@
+/
+//POST de Cadastro
+
+//DECISÕES DO SISTEMA
+
+    //Função que Autentica
+    
+
+if($status == '2'){    
+    session_destroy();
+}
+
+
+/*
+
+switch ($status) {
+    case '1':
+        
+        break;
+        //---------------------------------
+    case "deslogue":
+        session_start();
+        session_destroy();
+        break;
+        //---------------------------------
+    case "add_morador":
+        //Grava no Banco        
+        $buscar = $usuarios_index->cadastro(ucwords($_POST['nome']), $_POST['sexo'], $_POST['tel'], ucwords($_POST['curso']), $_POST['mensalidade'],$_POST['quarto']);
+        $_POST['status'] = '';
+        break;    
+        //---------------------------------
+    default:
+        echo "Informe um status";    
+}
+*/
+
+/*
+
+//Vê se a consulta ao banco retornou algum resultado
+if($buscar == true){
+    //Aqui usamos um for pra fazer uma repetição baseado no nª de elementos encontrados
+    for ($i = 0; $i < mysqli_num_rows($buscar); $i++){
+        //Puxamos os resultados em forma de array
+        $linha = mysqli_fetch_array($buscar, MYSQL_ASSOC);
+        
+        //Organizando a saida do array do SQL, para nosso Json de resposta.
+        $resposta[] = array(
+            'id' => $linha['id'],
+            'nome' => $linha['nome'],
+            'senha' => $linha['senha'],
+            
+        );        
+    }
+}
+//json_encode — Retorna a representação JSON de um valor
+echo json_encode($resposta);
+
+*/
+
+?>
+
+
+SELECT default_character_set_name FROM information_schema.SCHEMATA 
+WHERE schema_name = "schemaname";

@@ -10,7 +10,7 @@
                     <ul class="list-inline float-right mb-0">						
                         <li class="list-inline-item dropdown notif">
                             <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="<?php echo $_SESSION['resultado']['foto'] ?>" alt="Foto do Gerente" class="avatar-rounded" >
+                                <img src="<?php echo @$_SESSION['resultado']['foto'] ?>" alt="Sua Foto" class="avatar-rounded" >
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown">
                                 <!-- item-->

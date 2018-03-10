@@ -1,4 +1,5 @@
-<?php
+<?php    
+header('Content-Type: text/html; charset=utf-8');
     class UsuarioDAO{
         private $conexao;
         
@@ -10,7 +11,7 @@
         public function login($nome, $senha){
             $sql = "SELECT * FROM login where nome='$nome' and senha='$senha'";
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
-            
+                        
             if(mysqli_num_rows($resultado) > 0){//Se confirmar os dados
                 return $resultado; 
              }else{//Se não confirmar os dados
@@ -20,7 +21,39 @@
 
         //Grava Novos Moradores
         public function cadastro($nome, $sexo, $tel, $curso, $mensalidade, $quarto){
-            $sql = "INSERT INTO moradores values (default, '$nome', '$sexo', '$tel', '$curso', '$mensalidade', '$quarto')";
+           
+            $republica = '';
+            switch ($quarto) {
+                case '01':
+                    $quarto = 'Quadruplo';
+                    $republica = 'Centro';
+                    break;
+                case '02':
+                    $quarto = 'Duplo';
+                    $republica = 'Centro';
+                    break;
+                case '03':
+                    $quarto = 'Quadruplo';
+                    $republica = 'Inga';
+                    break;                
+                case '04':
+                    $quarto = 'Duplo';
+                    $republica = 'Inga';
+                    break;
+
+                case '05':
+                    $quarto = 'Quadruplo';
+                    $republica = 'Praia Vermelha';
+                    break;
+
+                case '06':
+                    $quarto = 'Duplo';
+                    $republica = 'Praia Vermelha';
+                    break;
+            } 
+
+
+            $sql = "INSERT INTO moradores values (default, '$nome', '$sexo', '$tel', '$curso', '$mensalidade', '$quarto','$republica')";
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
         }
 
@@ -28,7 +61,7 @@
         public function consultarTodosMoradores(){
             $sql = "SELECT * FROM moradores";
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
-            
+         
             //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
             if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
                return $resultado; 
