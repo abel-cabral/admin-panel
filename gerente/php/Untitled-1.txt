@@ -62,3 +62,5 @@ echo json_encode($resposta);
 
 SELECT default_character_set_name FROM information_schema.SCHEMATA 
 WHERE schema_name = "schemaname";
+
+ALTER DATABASE `sua_base` CHARSET = UTF8 COLLATE = utf8_general_ci;

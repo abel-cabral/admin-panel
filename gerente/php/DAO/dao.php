@@ -1,5 +1,4 @@
 <?php    
-header('Content-Type: text/html; charset=utf-8');
     class UsuarioDAO{
         private $conexao;
         
@@ -68,6 +67,12 @@ header('Content-Type: text/html; charset=utf-8');
             }else{//Se nao achar nada a função acaba.
                 return false;
             }
+        }
+
+        //Deletar Morador
+        public function deletar_morador($id_morador){
+            $sql = "DELETE FROM moradores WHERE id_morador=$id_morador";
+            $resultado = mysqli_query($this->conexao->getCon(), $sql);
         }
 
         

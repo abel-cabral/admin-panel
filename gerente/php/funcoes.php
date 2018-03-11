@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
 session_start();
 include_once('./DAO/dao.php');
 include_once('./conexao.php');
@@ -35,8 +34,7 @@ elseif($status == '2'){
 //Cadastrar Morador
 elseif($status == '3'){
     $usuarios_index = new UsuarioDAO();
-    $buscar = $usuarios_index->cadastro(transformar($_POST['nome']), $_POST['sexo'], $_POST['tel'], transformar($_POST['curso']), $_POST['mensalidade'], $_POST['quarto']); 
-    echo 'Feito';
+    $buscar = $usuarios_index->cadastro(transformar($_POST['nome']), $_POST['sexo'], $_POST['tel'], transformar($_POST['curso']), $_POST['mensalidade'], $_POST['quarto']);     
 }
 //Listar Todos Moradores
 elseif($status == '4'){
@@ -67,6 +65,12 @@ elseif($status == '4'){
     //json_encode — Retorna a representação JSON de um valor
     echo json_encode($resposta);    
     
+}
+//Deletar Morador
+elseif($status == '5'){
+    $usuarios_index = new UsuarioDAO();
+    $buscar = $usuarios_index->deletar_morador($_GET['id_morador']);
+    header("Location: ../moradores.php");    
 }
 //Em Caso de Erro do Nº do Status
 else{    

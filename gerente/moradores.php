@@ -174,7 +174,7 @@
                                     <div class="col-lg-6">
                                       <div class="form-group">
                                         <label>Telefone (obrigatório)</label>
-                                        <input class="form-control" name="tel" type="number"  maxlength="20" required/>
+                                        <input class="form-control" name="tel" type="text" data-mask="## 00000-0000" data-mask-reverse="true" maxlength="13" required/>
                                       </div>
                                     </div>
                                   </div>
@@ -182,7 +182,7 @@
                                     <div class="col-lg-6">
                                       <div class="form-group">
                                         <label>Mensalidade (obrigatório)</label>
-                                        <input class="form-control" name="mensalidade" type="number" placeholder='R$'  maxlength="10" required/>
+                                        <input class="form-control" name="mensalidade" type="text" data-mask="###.00" data-mask-reverse="true" placeholder='R$'  maxlength="7" required/>
                                       </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -351,7 +351,7 @@
                                           </div>
                                         </div>
                                       </div>
-                                      <a href="javascript:deleteRecord_5('5');" class="btn btn-danger btn-sm" data-placement="top" data-toggle="tooltip" data-title="Delete">
+                                      <a href="./php/funcoes.php?status=5&id_morador={{id}}" onclick='delete_morador()' id='morador_{{id}}' class="btn btn-danger btn-sm" onclick='todos_Moradores();'>
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                       </a>
                                     </td>
@@ -367,7 +367,7 @@
                       <!-- end col -->
                     </div>
                   </div>
-                  <!-- END container-fluid -->
+                  <!-- END container-fluid -->                  
                 </div>
                 <!-- END content -->
               </div>

@@ -32,20 +32,21 @@ $(document).ready(function() {
   
   
    //Cadastrar Moradores  
-  $('#form_morador').submit(function(e){  
+  $('#form_morador').submit(function(e){      
     e.preventDefault();       
       $.ajax({
       type: 'POST',       
       url: './php/funcoes.php',              
-      data: $('#form_morador').serialize(),
+      data: $('#form_morador').serialize(),//Captura todos os valores no FORM e faz um OBJ. 
       cache: false,                  
-      success: function(data){         
-        location.reload();        
+      success: function(){         
+        location.reload();
       }      
     })      
   });
    
-  });
+   //FIM DO 'JQUERY'  
+});
 
 //OBS - Funções apenas Javascript devem ficar fora da estrutura JQuery
 
@@ -71,3 +72,4 @@ $(document).ready(function() {
       }      
     })   
  }
+
