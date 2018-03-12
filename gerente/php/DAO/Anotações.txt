@@ -1,0 +1,62 @@
+Devo colocar a chave primaria da tabela republica na tabela moradores 
+
+cria uma coluna em moradores com mesma característica da que faremos foreign key
+
+alter table moradores add column nome_qualquer int;
+alter table moradores add foreign key(nome_qualquer) references republica(id_republica);
+
+Como unir os dados das duas tabelas;
+
+
+//Com esse comando eu listo todos que estão atualmente relacionados a republica
+select m.*, r.* from moradores as m join republicas as r ON r.id_republica = m.moradia order by m.nome";
+
+O 'ON' serve pra fazer a filtragem dos dados, é ele que liga quem é de quem.
+O 'AS' é um apelido definido para a tabela.
+
+//Já com esse eu listo todos que estão ou já estiveram na republica.
+select m.*, r.* from moradores as m left outer join republicas as r ON r.id_republica = m.moradia order by m.nome"
+
+Listar Pessoas Por tipo de quarto em suas repúblicas
+select m.*, r.* from moradores as m join republicas as r on m.moradia = r.id_republica where m.moradia = 1 and m.quarto = 'Quadruplo' 
+
+Cruza as 3 tabelas capturando as relações entre si e os dados dos moradores;
+select m.*, q.*, r.nome_republica from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica;
+
+
+Selecionando por republica
+select m.*, q.*, r.nome_republica from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica 
+
+Seleciona Republica por nome cruzando tabela informando Republica de origem e tipo de quarto
+select m.*, q.*, r.nome_republica from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = 1 and m.quarto = 2 order by m.nome
+
+
+fazendo o SQL contar
+select COUNT(m.moradia), q.*, r.nome_republica from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = 1 order by m.nome 
+
+Cruza Republica com tipo de quarto e com o sexo, contando o numero de pessoas ocupando
+select count(m.sexo),m.*, q.*, r.nome_republica from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = 1 and m.sexo = 'F' and m.quarto=2 order by m.nome 
+
+/*
+            //Centro            
+            01//Quadruplo 
+            02//Duplo 
+            
+            //Inga            
+            03//Quadruplo
+            04//Duplo 
+            
+            //Vermelha            
+            05//Quadruplo
+            06//Duplo 
+*/
+
+select count(m.sexo) as cs, count(m.moradia) as cm, m.*, q.*, r.nome_republica from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = 1 and m.sexo = 'F' and m.quarto=2 order by m.nome 
+
+contando
+m.moradia = Vou saber quantas pessoas estão naquela moradia:
+select count(m.moradia), m.*, q.*, r.nome_republica from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = 1;
+
+m.sexo quantas pessoas do sexo estão apelido
+
+

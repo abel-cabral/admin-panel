@@ -20,45 +20,42 @@
 
         //Grava Novos Moradores
         public function cadastro($nome, $sexo, $tel, $curso, $mensalidade, $quarto){
-           
-            $republica = '';
-            switch ($quarto) {
-                case '01':
-                    $quarto = 'Quadruplo';
-                    $republica = 'Centro';
-                    break;
-                case '02':
-                    $quarto = 'Duplo';
-                    $republica = 'Centro';
-                    break;
-                case '03':
-                    $quarto = 'Quadruplo';
-                    $republica = 'Inga';
-                    break;                
-                case '04':
-                    $quarto = 'Duplo';
-                    $republica = 'Inga';
-                    break;
+            
+            $republica;
 
-                case '05':
-                    $quarto = 'Quadruplo';
-                    $republica = 'Praia Vermelha';
-                    break;
-
-                case '06':
-                    $quarto = 'Duplo';
-                    $republica = 'Praia Vermelha';
-                    break;
-            } 
-
-
+            //DESCUBRO A REPUBLICA
+            //Primeiro a Variavel descobre qual valor de republica.
+            if($quarto == '01' || $quarto == '02'){
+                $republica = '1';
+            }elseif($quarto == '03' || $quarto == '04'){
+                $republica = '2';
+            }else{
+                $republica = '3';
+            }
+            
+            //DESCUBRO O SEXO E O QUARTO
+            if($sexo == 'F'){//OK
+                if($quarto % 2 !== 0){//Se o Quarto for Impar, logo ele é QUADRUPLO
+                    $quarto = 4;//Na tabela 'quartos' quarto femininos são pares;
+                }else{//Se o quarto for Par
+                    $quarto = 2;
+                }
+            }else{
+                if($quarto % 2 == 0){//DUPLO - Quartos Masculinos são Impares 1 e 3
+                    $quarto = 1;//Na tabela 'quartos' quarto masculino são impares
+                }else{//QUADRUPLO
+                    $quarto = 3;
+                }
+            }
+            
             $sql = "INSERT INTO moradores values (default, '$nome', '$sexo', '$tel', '$curso', '$mensalidade', '$quarto','$republica')";
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
         }
 
         //Lista de Todos os Moradores
         public function consultarTodosMoradores(){
-            $sql = "SELECT * FROM moradores";
+            $sql = "select m.*, r.* from moradores as m join republicas as r ON r.id_republica = m.moradia order by m.nome";
+            
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
          
             //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
@@ -75,67 +72,26 @@
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
         }
 
-        
-    }//FIM DA CLASSE
+        //Atualizar Morador
+        public function atualizar_morador($nome, $sexo, $tel, $curso, $mensalidade, $quarto, $republica, $id_morador){
+            $sql = "UPDATE moradores set nome='$nome', sexo='$sexo', telefone='$tel', curso='$curso', mensalidade='$mensalidade', quarto='$quarto',republica='$republica WHERE id_morador='$id_morador'";
+            $resultado = mysqli_query($this->conexao->getCon(), $sql);
+        }
+
+        //Contar Vagas Ocupadas
+        public function vaga_ocupada($ondeContar){            
+            $sql= "select count(m.moradia) as conte, m.*, q.*, r.nome_republica from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where $ondeContar";            
+            $resultado = mysqli_query($this->conexao->getCon(), $sql);
+            
+
+            //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
+            if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
+                return $resultado; 
+             }else{//Se nao achar nada a função acaba.
+                 return false;
+             }
+        }
 
         
-
-        
-        
-        
-        /*          BASE DE CONHECIMENTO
-        //Busca todos os dados de todos no BD
-        public function consultarTodosUsuarios(){
-            $sql = "SELECT * FROM usuarios";
-            $resultado = mysqli_query($this->conexao->getCon(), $sql);
-            
-            //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
-            if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
-               return $resultado; 
-            }else{//Se nao achar nada a função acaba.
-                return false;
-            }
-        }
-        
-        //Busca via ID todos os dados relacionados
-        public function consultarUsuario($id_user){
-            $sql = "SELECT * FROM usuarios where id = '$id_user'";
-            $resultado = mysqli_query($this->conexao->getCon(), $sql);
-            
-            //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
-            if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
-               return $resultado; 
-            }else{//Se nao achar nada a função acaba.
-                return false;
-            }
-        }
-        
-        //Cruza dados informados usando parametros de idade e sexo
-        public function consultar_caracteristicas($idade, $sexo){
-            $sql = "SELECT * FROM usuarios where idade <= $idade AND sexo = '$sexo'";
-            $resultado = mysqli_query($this->conexao->getCon(), $sql);
-            
-            //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
-            if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
-               return $resultado; 
-            }else{//Se nao achar nada a função acaba.
-                return false;
-            }
-        }
-        
-         //Aqui Estamos Fazendo uma consulta a outra tabela.
-        public function consulta_endereco($codigo){
-            $sql = "SELECT e.*, u.* FROM endereco as e INNER JOIN usuarios as u on (e.idUsuario = u.id) where u.id = $codigo ";
-            $resultado = mysqli_query($this->conexao->getCon(), $sql);
-            
-            //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
-            if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
-               return $resultado; 
-            }else{//Se nao achar nada a função acaba.
-                return false;
-            }
-        }
-        
-    }
-    FIM*/    
+    }//FIM DA CLASSE 
 ?>

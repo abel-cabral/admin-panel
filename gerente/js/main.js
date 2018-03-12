@@ -63,7 +63,7 @@ $(document).ready(function() {
             var template = $('#template').html();//Onde irá escrever
             Mustache.parse(template);   // Opcional
             var rendered = Mustache.render(template, {id: data[contador]['id_morador'], nome: data[contador]['nome'], sexo: data[contador]['sexo'], telefone: data[contador]['telefone'], 
-            mensalidade: data[contador]['mensalidade'], quarto: data[contador]['quarto'], curso: data[contador]['curso'], republica: data[contador]['republica']});//O que irei escrever {chave: valor}
+            mensalidade: data[contador]['mensalidade'], quarto: data[contador]['quarto'], curso: data[contador]['curso'], republica: data[contador]['nome_republica']});//O que irei escrever {chave: valor}
             $('#target').append(rendered);//SE USAR O .HTML O RESULTADO VAI SOBREESCREVER AE SÓ TEREMOS O ULTIMO
          });
 
@@ -72,4 +72,32 @@ $(document).ready(function() {
       }      
     })   
  }
+
+
+ vagas('m.moradia=1');//Todos Moradores
+ vagas("m.moradia=1 and m.sexo='M' and m.quarto=1");//Moradores Masculinos Duplo
+ vagas("m.moradia=1 and m.sexo='M' and m.quarto=3");//Moradores Masculinos Quadruplo
+ vagas("m.moradia=1 and m.sexo='F' and m.quarto=2");//Moradoras Duplo
+ vagas("m.moradia=1 and m.sexo='F' and m.quarto=4");//Moradoras Quadruplo
+
+var localizae = '#r1';
+function vagas(moradia, sexo, quarto){
+  $.ajax({
+    type: 'GET',       
+    url: './php/funcoes.php',        
+    data: {'status':'6','moradia':moradia, 'sexo':sexo, 'quarto':quarto},
+    cache: false,
+    dataType: 'JSON',      
+    success: function(data){                   
+      $.each (data, function (contador) {
+       $('#'+localizae).html(data[contador]['conte']);     
+       
+        
+     });     
+           
+      
+       
+    }      
+  })   
+}
 

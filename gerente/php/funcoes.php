@@ -58,7 +58,7 @@ elseif($status == '4'){
                 'curso' => $linha['curso'],
                 'mensalidade' => $linha['mensalidade'],
                 'quarto' => $linha['quarto'],
-                'republica' => $linha['republica']                                
+                'nome_republica' => $linha['nome_republica']   //MUDar                                                             
             );        
         }
     }
@@ -71,6 +71,39 @@ elseif($status == '5'){
     $usuarios_index = new UsuarioDAO();
     $buscar = $usuarios_index->deletar_morador($_GET['id_morador']);
     header("Location: ../moradores.php");    
+}
+//Contar Vagas
+elseif($status == '6'){
+    $usuarios_index = new UsuarioDAO();
+    $buscar = $usuarios_index->vaga_ocupada($_GET['moradia']);//contar na tabela, republica, sexo, tipo de quarto
+
+    if($buscar == true){
+        
+        //Aqui usamos um for pra fazer uma repetição baseado no nª de elementos encontrados
+        for ($i = 0; $i < mysqli_num_rows($buscar); $i++){
+            
+            //Puxamos os resultados em forma de array
+            $linha = mysqli_fetch_array($buscar, MYSQL_ASSOC);
+            
+            //Organizando a saida do array do SQL, para nosso Json de resposta.
+            $resposta[] = array(
+                'id_morador' => $linha['id_morador'],
+                'nome' => $linha['nome'],
+                'sexo' => $linha['sexo'],
+                'telefone' => $linha['telefone'],
+                'curso' => $linha['curso'],
+                'mensalidade' => $linha['mensalidade'],
+                'quarto' => $linha['tipo_quarto'],
+                'nome_republica' => $linha['nome_republica'],                                
+                'valor_quarto' => $linha['valor_quarto'],
+                'conte' => $linha['conte']
+            );        
+        }
+    }
+    //json_encode — Retorna a representação JSON de um valor
+    echo json_encode($resposta);    
+    
+    
 }
 //Em Caso de Erro do Nº do Status
 else{    
