@@ -74,8 +74,13 @@ elseif($status == '5'){
 }
 //Contar Vagas
 elseif($status == '6'){
-    $usuarios_index = new UsuarioDAO();
-    $buscar = $usuarios_index->vaga_ocupada($_GET['moradia']);//contar na tabela, republica, sexo, tipo de quarto
+    @session_destroy($_SESSION['total']);
+    $usuarios_index = new UsuarioDAO();//total de republicas, 
+
+    
+    for($c=1;$c<=3;$c++){
+    
+    $buscar = $usuarios_index->vaga_ocupada($c);//contar na tabela, republica, sexo, tipo de quarto
 
     if($buscar == true){
         
@@ -86,7 +91,7 @@ elseif($status == '6'){
             $linha = mysqli_fetch_array($buscar, MYSQL_ASSOC);
             
             //Organizando a saida do array do SQL, para nosso Json de resposta.
-            $resposta[] = array(
+            $resposta[$c] = array(
                 'id_morador' => $linha['id_morador'],
                 'nome' => $linha['nome'],
                 'sexo' => $linha['sexo'],
@@ -96,14 +101,95 @@ elseif($status == '6'){
                 'quarto' => $linha['tipo_quarto'],
                 'nome_republica' => $linha['nome_republica'],                                
                 'valor_quarto' => $linha['valor_quarto'],
-                'conte' => $linha['conte']
+                'conte' => $linha['conte'],
+                'id_republica' => $linha['id_republica']              
             );        
         }
     }
-    //json_encode — Retorna a representação JSON de um valor
-    echo json_encode($resposta);    
+    }
+    //json_encode — Retorna a representação JSON de um valor    
+  $_SESSION['total'] = $resposta;//Só chama no php por essa essão dando um echo     
+}
+//Contar Vagas Duplas
+elseif($status == '7'){
+    @session_destroy($_SESSION[$_GET['tipo_vaga']]);
+    $usuarios_index = new UsuarioDAO();
+    for($c=1;$c<=3;$c++){
     
+        $buscar = $usuarios_index->vaga_dupla($c, $_GET['sexo']);//contar na tabela, republica, sexo, tipo de quarto
     
+        if($buscar == true){
+            
+            //Aqui usamos um for pra fazer uma repetição baseado no nª de elementos encontrados
+            for ($i = 0; $i < mysqli_num_rows($buscar); $i++){
+                
+                //Puxamos os resultados em forma de array
+                $linha = mysqli_fetch_array($buscar, MYSQL_ASSOC);
+                
+                //Organizando a saida do array do SQL, para nosso Json de resposta.
+                $resposta[$c] = array(
+                    'id_morador' => $linha['id_morador'],
+                    'nome' => $linha['nome'],
+                    'sexo' => $linha['sexo'],
+                    'telefone' => $linha['telefone'],
+                    'curso' => $linha['curso'],                      
+                    'mensalidade' => $linha['mensalidade'],
+                    'quarto' => $linha['tipo_quarto'],
+                    'nome_republica' => $linha['nome_republica'],                                
+                    'valor_quarto' => $linha['valor_quarto'],
+                    'dupla' => $linha['dupla'],
+                    'id_republica' => $linha['id_republica']                  
+                );        
+            }
+        }
+        }
+        //json_encode — Retorna a representação JSON de um valor    
+          
+       $_SESSION[$_GET['tipo_vaga']] = $resposta;  
+       echo json_encode($resposta); 
+
+}
+//Conta vagas Quadruplas
+elseif($status == '8'){
+    @session_destroy($_SESSION[$_GET['tipo_vaga']]);
+    $usuarios_index = new UsuarioDAO();
+    for($c=1;$c<=3;$c++){
+    
+        $buscar = $usuarios_index->vaga_quadrupla($c, $_GET['sexo']);//contar na tabela, republica, sexo, tipo de quarto
+    
+        if($buscar == true){
+            
+            //Aqui usamos um for pra fazer uma repetição baseado no nª de elementos encontrados
+            for ($i = 0; $i < mysqli_num_rows($buscar); $i++){
+                
+                //Puxamos os resultados em forma de array
+                $linha = mysqli_fetch_array($buscar, MYSQL_ASSOC);
+                
+                //Organizando a saida do array do SQL, para nosso Json de resposta.
+                $resposta[$c] = array(
+                    'id_morador' => $linha['id_morador'],
+                    'nome' => $linha['nome'],
+                    'sexo' => $linha['sexo'],
+                    'telefone' => $linha['telefone'],
+                    'curso' => $linha['curso'],
+                    'mensalidade' => $linha['mensalidade'],
+                    'quarto' => $linha['tipo_quarto'],                                                    
+                    'nome_republica' => $linha['nome_republica'],                                
+                    'valor_quarto' => $linha['valor_quarto'],
+                    'quad' => $linha['quad'],
+                    'id_republica' => $linha['id_republica']                
+                );        
+            }
+        }
+        }
+        //json_encode — Retorna a representação JSON de um valor              
+     $_SESSION[$_GET['tipo_vaga']] = $resposta;         
+
+}
+//Vagas que deseja oferecer
+elseif($status == '9'){
+    $usuarios_index = new UsuarioDAO();
+    $buscar = $usuarios_index->numero_vagas($_POST['id_republica'], $_POST['dM'],$_POST['dF'],$_POST['qM'],$_POST['qF']);//contar na tabela, republica, sexo, tipo de quarto        
 }
 //Em Caso de Erro do Nº do Status
 else{    

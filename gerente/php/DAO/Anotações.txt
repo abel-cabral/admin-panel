@@ -60,3 +60,11 @@ select count(m.moradia), m.*, q.*, r.nome_republica from moradores as m join qua
 m.sexo quantas pessoas do sexo estão apelido
 
 
+
+Achando os valor total das vagas ofertadas
+select r.duplo_masculino + r.duplo_feminino + r.quadruplo_masculino + r.quadruplo_feminino as soma, m.*, q.*, r.* from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia=1 
+
+
+Atualiza o numero de vagas
+UPDATE republicas SET duplo_masculino = 7, duplo_feminino = 10, quadruplo_masculino = 18, quadruplo_feminino = 50 WHERE id_republica = 1
+

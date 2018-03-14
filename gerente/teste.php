@@ -3,6 +3,7 @@
 ?>
     <!DOCTYPE html>
     <html lang="pt-br">
+ 
     <!--Header-->
     <?php include_once('./php/header.php');?>
         <!--Header-->
@@ -75,7 +76,7 @@
                                 <!-- Plans -->
                                 <section id="plans">
                                     <div class="container">
-                                        <div class="row" >
+                                        <div class="row">
                                             <!-- item -->                                                                                     
                                             <div class="col-md-4 text-center">
                                                 <div class="panel panel-danger panel-pricing">
@@ -87,14 +88,19 @@
                                                         <p><strong >25</strong></p>                                                    
                                                     </div>
                                                     <ul class="list-group text-center" id='cargoso'>
-                                                        <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Total: <strong id='r1'></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Duplo: <strong id='r1M2'></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Duplo: <strong id='r1F2'></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Quádruplo: <strong id='r1M4'></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Quádruplo: <strong id='r1F4'></strong></li>
+                                                        
+                                                    
+
+                                                        <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Total: <strong id='r1'><?php echo $_SESSION['total'][1]['conte']; ?></strong ></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Duplo: <strong id='r1M2'><?php  echo($_SESSION['duplaM'][1]['dupla']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Duplo: <strong id='r1F2'><?php  echo($_SESSION['duplaF'][1]['dupla']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Quádruplo: <strong id='r1M4'><?php  echo($_SESSION['quadM'][1]['quad']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Quádruplo: <strong id='r1F4'><?php  echo($_SESSION['quadF'][1]['quad']); ?></strong></li>
+
+                                                        
                                                     </ul>                                                    
                                                     <div class="panel-footer" data-toggle="modal" data-target="#modal-republica">
-                                                        <a class="btn btn-lg btn-block btn-danger" href="#">Alterar Dados</a>
+                                                        <a class="btn btn-lg btn-block btn-danger nome_republica" href="#" data-republica="<?php echo $_SESSION['total'][1]['id_republica']; ?>">Alterar Dados</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,14 +119,14 @@
                                                         <p><strong>59% Ocupada</strong></p>
                                                     </div>
                                                     <ul class="list-group text-center">
-                                                    <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Total: <strong id='r2'></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Duplo: <strong id='r2M2'></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Duplo: <strong id='r2F2'></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Quádruplo: <strong id='r2M4'></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Quádruplo: <strong id='r2F4'></strong></li>
+                                                    <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Total: <strong id='r2'><?php echo $_SESSION['total'][2]['conte']; ?></strong ></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Duplo: <strong id='r2M2'><?php  echo($_SESSION['duplaM'][2]['dupla']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Duplo: <strong id='r2F2'><?php  echo($_SESSION['duplaF'][2]['dupla']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Quádruplo: <strong id='r2M4'><?php  echo($_SESSION['quadM'][2]['quad']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Quádruplo: <strong id='r2F4'><?php  echo($_SESSION['quadF'][2]['quad']); ?></strong></li>
                                                     </ul>
                                                     <div class="panel-footer" data-toggle="modal" data-target="#modal-republica">
-                                                        <a class="btn btn-lg btn-block btn-warning" href="#">Alterar Dados</a>
+                                                        <a class="btn btn-lg btn-block btn-warning nome_republica" href="#" data-republica="<?php echo $_SESSION['total'][2]['id_republica']; ?>">Alterar Dados</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,14 +143,14 @@
                                                         <p><strong>100% Ocupada</strong></p>
                                                     </div>
                                                     <ul class="list-group text-center">
-                                                    <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Total: <strong id='r3'></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Duplo: <strong id='r3M2'></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Duplo: <strong id='r3F2'></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Quádruplo: <strong id='r3M4'></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Quádruplo: <strong id='r3F4'></strong></li>
+                                                    <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Total: <strong id='r3'><?php echo $_SESSION['total'][3]['conte']; ?></strong ></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Duplo: <strong id='r3M2'><?php  echo($_SESSION['duplaM'][3]['dupla']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Duplo: <strong id='r3F2'><?php  echo($_SESSION['duplaF'][3]['dupla']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Vagas Masculina Quarto Quádruplo: <strong id='r3M4'><?php  echo($_SESSION['quadM'][3]['quad']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Vagas Feminina Quarto Quádruplo: <strong id='r3F4'><?php  echo($_SESSION['quadF'][3]['quad']); ?></strong></li>
                                                     </ul>
                                                     <div class="panel-footer" data-toggle="modal" data-target="#modal-republica">
-                                                        <a class="btn btn-lg btn-block btn-success" href="#">Alterar Dados</a>
+                                                        <a class="btn btn-lg btn-block btn-success nome_republica" href="#" data-republica="<?php echo $_SESSION['total'][3]['id_republica']; ?>">Alterar Dados</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -154,7 +160,7 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <!--Quartos Duplos-->
-                                                        <form action="" id='#' method="POST">
+                                                        <form action="#" id='form_republica_vaga' method="POST">
                                                         <!--Chama o MODAL-->    
                                                         <div class="modal-header">
                                                                 <h5 class="modal-title">Atualizar Dados de Vagas</h5>
@@ -174,7 +180,7 @@
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text" id="basic-addon1">Masculino</span>
                                                                                 </div>
-                                                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                                <input type="text" class="form-control" name='dM' aria-label="Username" aria-describedby="basic-addon1" require>
                                                                             </div>
                                                                         </div>
                                                                         
@@ -185,7 +191,7 @@
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text" id="basic-addon1">Feminino</span>
                                                                                 </div>
-                                                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                                <input type="text" class="form-control" name='dF' aria-label="Username" aria-describedby="basic-addon1" require>
                                                                             </div>
                                                                         </div>
                                                                         
@@ -202,7 +208,7 @@
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text" id="basic-addon1">Masculino</span>
                                                                                 </div>
-                                                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                                <input type="text" class="form-control" name='qM' aria-label="Username" aria-describedby="basic-addon1" require>
                                                                             </div>
                                                                         </div>
                                                                         
@@ -213,7 +219,7 @@
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text" id="basic-addon1">Feminino</span>
                                                                                 </div>
-                                                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                                                                <input type="text" class="form-control" name='qF' aria-label="Username" aria-describedby="basic-addon1" require>
                                                                             </div>
                                                                         </div>
                                                                         

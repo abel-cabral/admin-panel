@@ -78,11 +78,10 @@
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
         }
 
-        //Contar Vagas Ocupadas
-        public function vaga_ocupada($ondeContar){            
-            $sql= "select count(m.moradia) as conte, m.*, q.*, r.nome_republica from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where $ondeContar";            
-            $resultado = mysqli_query($this->conexao->getCon(), $sql);
-            
+        //Total de Vagas da Republica
+        public function vaga_ocupada($n){            
+            $sql= "select count(m.moradia) as conte, m.*, q.*, r.* from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = $n";            
+            $resultado = mysqli_query($this->conexao->getCon(), $sql);            
 
             //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
             if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
@@ -92,6 +91,61 @@
              }
         }
 
+        //Total de Vagas Duplas Masculinas
+        public function vaga_dupla($n, $sexo){
+            //Usei para identificar o sexo e puxar na sql
+            $q = '';
+            if($sexo == 'F'){
+                $q = '2';
+            }else{
+                $q = '1';
+            }
+
+            $sql= "select count(m.moradia) as dupla, m.*, q.*, r.* from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = '$n' and sexo='$sexo' and quarto= '$q' ";            
+            $resultado = mysqli_query($this->conexao->getCon(), $sql);            
+
+            //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
+            if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
+                return $resultado; 
+             }else{//Se nao achar nada a função acaba.
+                 return false;
+             }
+        }
+
+        //Total de Vagas Quadruplas
+        public function vaga_quadrupla($n, $sexo){            
+            $q = '';
+            if($sexo == 'F'){
+                $q = '4';
+            }else{
+                $q = '3';
+            }
+
+            $sql= "select count(m.moradia) as quad, m.*, q.*, r.* from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = $n and sexo='$sexo' and quarto= '$q' ";            
+            $resultado = mysqli_query($this->conexao->getCon(), $sql);            
+
+            //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
+            if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
+                return $resultado; 
+             }else{//Se nao achar nada a função acaba.
+                 return false;
+             }
+        }
+
+        //Alterar Vagas
+       public function numero_vagas($n, $dm,$df,$qm,$qf){
+            $sql= "UPDATE republicas SET duplo_masculino = '$dm', duplo_feminino = '$df', quadruplo_masculino = '$qm', quadruplo_feminino = '$qf' WHERE id_republica = '$n'";            
+            $resultado = mysqli_query($this->conexao->getCon(), $sql);            
+
+            //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
+            if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
+                return $resultado; 
+             }else{//Se nao achar nada a função acaba.
+                 return false;
+             }
+        }
+        
+       
         
     }//FIM DA CLASSE 
 ?>
