@@ -432,7 +432,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <a href="./php/funcoes.php?status=5&id_morador={{id}}" onclick='delete_morador()' id='morador_{{id}}' class="btn btn-danger btn-sm" onclick='todos_Moradores();'>
+                                                                    <a href="#" data-id_morador='{{id}}' class="btn btn-danger btn-sm id_morador">
                                                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                                     </a>
                                                                 </td>

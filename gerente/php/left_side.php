@@ -64,9 +64,9 @@
 
 					<li class="submenu">
                         <a href="#"><i class="fa fa-fw fa-image"></i> <span> Galeria de Fotos </span> <span class="menu-arrow"></span></a>
-							<ul class="list-unstyled">
-								<li><a href="media-fancybox.html"><span class="label radius-circle bg-danger float-right">cool</span> Fancybox </a></li>								
-								<li><a href="media-masonry.html">Ponta da Areia</a></li>
+							<ul class="list-unstyled">								
+								<li><a href="media-masonry.html">Capas do Site</a></li>
+                                <li><a href="media-masonry.html">Ponta da Areia</a></li>
 								<li><a href="media-lightbox.html">Biomédico</a></li>
 								<li><a href="media-owl-carousel.html">Praia Vermelha</a></li>							
 							</ul>
@@ -100,16 +100,10 @@
                     </li>
 
 					<li class="submenu">
-                        <a class="pro" href="#"><i class="fa fa-fw fa-star"></i><span>Atualizações e Dados</span> <span class="menu-arrow"></span></a>
+                        <a class="pro" href="#"><i class="fa fa-fw fa-star"></i><span>Vagas e Moradores</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">								
                                 <li><a href="./moradores.php" id="controle_moradores">Controle de Moradores</a></li>
-								<li><a href="pro-profile.html">Controle de Vagas</a></li>
-                                <li><a href="pro-users.html">Users</a></li>
-                                <li><a href="pro-articles.html">Articles</a></li>
-                                <li><a href="pro-categories.html">Categories</a></li>
-								<li><a href="pro-pages.html">Pages</a></li>								
-                                <li><a href="pro-contact-messages.html">Contact Messages</a></li>
-								<li><a href="pro-slider.html">Slider</a></li>
+								<li><a href="./total_moradores.php">Controle de Vagas</a></li>                                
                             </ul>
                     </li>
 					

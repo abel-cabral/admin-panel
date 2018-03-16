@@ -54,7 +54,7 @@
 
         //Lista de Todos os Moradores
         public function consultarTodosMoradores(){
-            $sql = "select m.*, r.* from moradores as m join republicas as r ON r.id_republica = m.moradia order by m.nome";
+            $sql = "select m.*, r.*, q.* from moradores as m join republicas as r ON r.id_republica = m.moradia join quartos as q ON m.quarto = q.id_quarto order by m.nome ";
             
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
          
@@ -68,7 +68,7 @@
 
         //Deletar Morador
         public function deletar_morador($id_morador){
-            $sql = "DELETE FROM moradores WHERE id_morador=$id_morador";
+            $sql = "UPDATE moradores SET moradia = NULL WHERE id_morador = $id_morador;";
             $resultado = mysqli_query($this->conexao->getCon(), $sql);
         }
 
@@ -145,7 +145,19 @@
              }
         }
         
-       
+       public function total_porcentagem($n){
+        $sql= "select r.duplo_masculino + r.duplo_feminino + r.quadruplo_masculino + r.quadruplo_feminino as soma, r.* from republicas as r where r.id_republica=$n";            
+        $resultado = mysqli_query($this->conexao->getCon(), $sql);            
+
+        //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
+        if(mysqli_num_rows($resultado) > 0){//Aqui comparamos se é maior que 0
+            return $resultado; 
+         }else{//Se nao achar nada a função acaba.
+             return false;
+         }
+        
+           
+       }
         
     }//FIM DA CLASSE 
 ?>

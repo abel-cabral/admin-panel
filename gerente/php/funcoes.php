@@ -2,22 +2,11 @@
 session_start();
 include_once('./DAO/dao.php');
 include_once('./conexao.php');
-
-
-
 @$nome = $_POST['nome'];
 @$senha = $_POST['senha'];
-
 //Váriavel de Decisão
 @$status = isset($_POST['status'])? $_POST['status'] : $_GET['status'];//Se não houver um POST, status receberá um GET se houver
-
-
-
-
 //Captura valores do POST de Login
-
-
-
 //Login do ADM
 if($status == '1'){
     $usuarios_index = new UsuarioDAO();
@@ -58,7 +47,8 @@ elseif($status == '4'){
                 'curso' => $linha['curso'],
                 'mensalidade' => $linha['mensalidade'],
                 'quarto' => $linha['quarto'],
-                'nome_republica' => $linha['nome_republica']   //MUDar                                                             
+                'nome_republica' => $linha['nome_republica'],
+                'tipo_quarto' => $linha['tipo_quarto']
             );        
         }
     }
@@ -69,19 +59,15 @@ elseif($status == '4'){
 //Deletar Morador
 elseif($status == '5'){
     $usuarios_index = new UsuarioDAO();
-    $buscar = $usuarios_index->deletar_morador($_GET['id_morador']);
-    header("Location: ../moradores.php");    
+    $buscar = $usuarios_index->deletar_morador($_POST['id_morador']);    
 }
 //Contar Vagas
-elseif($status == '6'){
-    @session_destroy($_SESSION['total']);
+elseif($status == '6'){    
     $usuarios_index = new UsuarioDAO();//total de republicas, 
-
     
     for($c=1;$c<=3;$c++){
     
     $buscar = $usuarios_index->vaga_ocupada($c);//contar na tabela, republica, sexo, tipo de quarto
-
     if($buscar == true){
         
         //Aqui usamos um for pra fazer uma repetição baseado no nª de elementos encontrados
@@ -108,11 +94,11 @@ elseif($status == '6'){
     }
     }
     //json_encode — Retorna a representação JSON de um valor    
-  $_SESSION['total'] = $resposta;//Só chama no php por essa essão dando um echo     
+    echo $_SESSION['total'] = $resposta;//Só chama no php por essa essão dando um echo     
 }
 //Contar Vagas Duplas
 elseif($status == '7'){
-    @session_destroy($_SESSION[$_GET['tipo_vaga']]);
+   
     $usuarios_index = new UsuarioDAO();
     for($c=1;$c<=3;$c++){
     
@@ -147,11 +133,10 @@ elseif($status == '7'){
           
        $_SESSION[$_GET['tipo_vaga']] = $resposta;  
        echo json_encode($resposta); 
-
 }
 //Conta vagas Quadruplas
 elseif($status == '8'){
-    @session_destroy($_SESSION[$_GET['tipo_vaga']]);
+    
     $usuarios_index = new UsuarioDAO();
     for($c=1;$c<=3;$c++){
     
@@ -184,64 +169,32 @@ elseif($status == '8'){
         }
         //json_encode — Retorna a representação JSON de um valor              
      $_SESSION[$_GET['tipo_vaga']] = $resposta;         
-
 }
 //Vagas que deseja oferecer
 elseif($status == '9'){
     $usuarios_index = new UsuarioDAO();
     $buscar = $usuarios_index->numero_vagas($_POST['id_republica'], $_POST['dM'],$_POST['dF'],$_POST['qM'],$_POST['qF']);//contar na tabela, republica, sexo, tipo de quarto        
 }
+//Procentagem de Ocupação
+elseif($status == '10'){
+    $usuarios_index = new UsuarioDAO();
+    $buscar = $usuarios_index->total_porcentagem($_GET['id_republica']);//Conta o total de vagas abertas pra aluguel 
+
+    if($buscar == true){
+        $linha = mysqli_fetch_array($buscar, MYSQL_ASSOC);
+        $resposta = $linha;
+        
+        echo $resposta['soma'];
+        
+        
+    }
+}
 //Em Caso de Erro do Nº do Status
 else{    
     echo('Não recebi o Númerador do Status!');
 }
-
-
 //---------------------------------------------------------------------------- DEMAIS FUNÇÕES COMPLEMENTARES ----------------------------------------------------------------//
-
 //Passa pra utf-8 e 1 letras das palavras em maiúscula
 function transformar($texto){
     return ucwords($texto);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
-
