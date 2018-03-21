@@ -65,7 +65,7 @@
 					<li class="submenu">
                         <a href="#"><i class="fa fa-fw fa-image"></i> <span> Galeria de Fotos </span> <span class="menu-arrow"></span></a>
 							<ul class="list-unstyled">								
-								<li><a href="#">Capas do Site</a></li>
+								<li><a href="./capas.php">Capas Tela Inicial</a></li>
                                 <li><a href="./galeria_centro.php">Ponta da Areia</a></li>
 								<li><a href="./galeria_inga.php">Biomédico</a></li>
 								<li><a href="./galeria_vermelha.php">Praia Vermelha</a></li>							

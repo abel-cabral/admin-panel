@@ -242,7 +242,7 @@
                                                                 </th>
 																				<td>
 																					<span style="float: left; margin-right:10px;">
-																						<img alt="image" style="max-width:40px; height:auto;" src="assets/images/avatars/avatar1.png" />
+																						<img alt="image" style="max-width:40px; height:auto;" src="assets/images/avatars/{{sexo}}{{random_foto}}.png" />
 																					</span>
 																					<strong>{{nome}}</strong>
 																					<br />

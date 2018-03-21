@@ -225,6 +225,13 @@ elseif($status == '13'){
     echo true;
         
 }
+//Atualizar Capas
+elseif($status == '14'){
+    $usuarios_index = new UsuarioDAO();
+    $buscar = $usuarios_index->atualizar_capa($_POST['link'], $_POST['id_republica']);
+    echo true;        
+}
+
 //Em Caso de Erro do Nº do Status
 else{    
     echo('Não recebi o Númerador do Status!');

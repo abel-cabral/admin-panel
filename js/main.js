@@ -1,4 +1,8 @@
+ //Lista Varoiaveis Globais
+var file;
+
 $(document).ready(function() {
+  
   //Logar
   $("#form1").submit(function(e) {
     e.preventDefault();
@@ -118,49 +122,14 @@ $(document).ready(function() {
     });
   });
 
-  //Função salva imagem firebase + sql link   
-   $('#fileButton').on('change', function(e){//Ao selecionar um arquivo inicia o evento
-    //Pega os Elementos
-    var uploader = $('#uploader');
-    var fileButton =  $('#fileButton');    
-    var id_republica = $('.fotos_republicas').data('galeria');//Com isso eu consigo atualizar 3 páginas com uma unica função
+  //Função salva imagem firebase
+   $('#fileButton').on('change', $.fn.captura_file = function(e){//Ao selecionar um arquivo inicia o evento
+    $('#save_foto').css('visibility','visible');
+    file = this.files[0];   
+    console.log('1=>'+file);/////////
+    console.log('1=>'+file.name);/////////
+   });
 
-   // Get File
-   var file = e.target.files[0];
-
-   //Create a Storage ref
-   var storageRef = firebase.storage().ref('r2/' + file.name);
-   
-   // Upload a File
-   var task = storageRef.put(file);
-   
-   //Update Progress Bar
-   task.on('state_changed', 
-       function progress(snapshot){
-           //var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-           $('.hidden').css('visibility','visible');
-           $(uploader).css('width', (snapshot.bytesTransferred / snapshot.totalBytes) * 100 + '%');
-           $(uploader).html(parseInt((snapshot.bytesTransferred / snapshot.totalBytes) * 100) + '%');
-                     
-       },
-       function error(err){
-        swal("Erro ao conectar na Firebase!", "Consulte o Desenvolvedo!", "error");  
-       },
-       function complete(){
-           $.ajax({
-            type: "POST",
-            url: "./php/funcoes.php",
-            data: {'status':'11', 'link':file.name, 'id_republica': id_republica,'descricao':$('#descricao').val()}, //Captura todos os valores no FORM e faz um OBJ.
-            cache: false,
-            success: function() {              
-              swal("Salvo com sucesso!", "Clique para sair", "success");  
-              $("#modal-galeria").modal("toggle"); //E caso o modal bootstrap nao feche isso o força
-              location.reload();//Reload page    
-            }
-          });     
-       }
-   );
-});
 
 //Deletar Foto da Galeria
 $(document).on("click", ".remover_imagem", function() { 
@@ -202,27 +171,113 @@ $(document).on("click", ".remover_imagem", function() {
       
     }
   });
-  
- 
- 
- 
- 
-   
-
- 
-  
 });
 
-  //Chamando Funções externas ao Jquery
+//Gravar no Firebase
+$("#save_foto").click($.fn.gravar_imagem = function(e,teste_sql) {//e -> evento, teste_sql-> Meu parametro
+  
+
+  //Create a Storage ref
+  var storageRef = firebase.storage().ref('r2/' + file.name); 
+  
+  // Upload a File
+  var task = storageRef.put(file);
+
+  //Update Progress Bar
+  task.on('state_changed', 
+  function progress(snapshot){    
+    $('.hidden').css('visibility','visible');
+    $(uploader).css('width', (snapshot.bytesTransferred / snapshot.totalBytes) * 100 + '%');
+    $(uploader).html(parseInt((snapshot.bytesTransferred / snapshot.totalBytes) * 100) + '%');
+                
+  },
+  function error(err){
+   swal("Erro ao conectar na Firebase!", "Consulte o Desenvolvedo!", "error");  
+  },
+  function complete(){    
+    if(teste_sql == 'atualizar_capa'){//Conforme o nome da função passada o resultado será outro   
+      alert('oi')      
+      return false         
+    }else{
+      $.fn.gravanosql();   
+      e.preventDefault();
+    }
+    
+    });    
+});
+
+//GRAVA O LINK NO SQL
+$.fn.gravanosql = function(){
+  //Variaveis da Função
+  var id_republica = $('.fotos_republicas').data('galeria');//Com isso eu consigo atualizar 3 páginas com uma unica função;
+
+  //Se sim executa o ajax de gravar
+  $.ajax({
+    type: "POST",
+    url: "./php/funcoes.php",
+    data: {'status':'11', 'link':file.name, 'id_republica': id_republica,'descricao':$('#descricao').val()},            
+    cache: false,
+    success: function() {
+      swal("Imagem e Legenda Salvas com Sucesso.", {
+        icon: "success"
+      });      
+      $('.swal-button--confirm').on('click',function(){//Só após clicar em OK que a página recarrega
+        location.reload();
+      }); 
+    },error: function(){
+      //se não só exibe a mensagem
+      swal("Não consegui gravar sua foto e legenda.");
+    }
+  });
+}
+
+//UPDATE FOTOS CAPAS
+$(document).on("change", ".atualizar_capa", function(){//Ao selecionar nova capa roda a função e atualiza
+  id_capa = $(this).data('id_imagem');
+  file = this.files[0];
+  $.fn.gravar_imagem('atualizar_capa');
+  
+  //Atualiza a capa
+  $.ajax({
+    type: "POST",
+    url: "./php/funcoes.php",
+    data: {'status':'14', 'link':file.name, 'id_republica': id_capa},            
+    cache: false,
+    success: function() {      
+      swal("Capa do site atualizada.", {
+        icon: "success"
+      });
+      $('.swal-button--confirm').on('click',function(){
+        location.reload();
+      }); 
+    },error: function(){      
+      swal("Não consegui salvar sua capa.");
+    }
+  });
+  
+ 
+});
+
+
+
+/*$(document).on("change", ".atualizar_capa", $.fn.myFunction = function(){//Ao selecionar nova capa roda a função e atualiza
+  var id_republica = $(this).data('id_imagem');
+  alert('id_republica');
+  
+ 
+});*/
+
+//Chamando Funções externas ao Jquery
   vagas_total();
 
-  //FIM DO 'JQUERY'
+ //FIM DO 'JQUERY'
 });
 
 //OBS - Funções apenas Javascript devem ficar fora da estrutura JQuery
 
 //Listar Moradores
 function todos_Moradores() {
+  
   $.ajax({
     type: "GET",
     url: "./php/funcoes.php",
@@ -245,6 +300,8 @@ function todos_Moradores() {
           quarto: data[contador]["tipo_quarto"],
           curso: data[contador]["curso"],
           republica: data[contador]["nome_republica"],
+          random_foto: parseInt(Math.random() * 4 + 1),//Joga um numero aleatório pra puxar os avatares ex: m1,m2,m3
+          
         }); //O que irei escrever {chave: valor}
         $("#target").append(rendered); //SE USAR O .HTML O RESULTADO VAI SOBREESCREVER AE SÓ TEREMOS O ULTIMO
       });
@@ -341,10 +398,7 @@ function listar_fotos(id_republica) {
     },error: function(){
       swal("Não há fotos, ou há um problema com o Banco de Dados!", "Consulte o Desenvolvedor!", "error");//Um aviso de erro  
     }    
-  });
-
- 
-  
+  });  
 }
 
 

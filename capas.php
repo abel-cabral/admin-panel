@@ -10,7 +10,7 @@ include_once ('./php/verifica_sessao.php');
   <style>
     
   </style>
-  <body class="adminbody" onload="listar_fotos('1');"><!--Aqui chamamos a função e passamos o id da republica que ela deve buscar as fotos-->
+  <body class="adminbody" onload="listar_fotos('4');"><!--Aqui chamamos a função e passamos o id da republica que ela deve buscar as fotos-->
     <div id="main">
       <div class="content-page">
         <!-- Start content -->
@@ -40,41 +40,31 @@ include_once ('./php/verifica_sessao.php');
                   <div class="card-header">
                     <h3>
                       <i class="fa fa-image">
-                      </i> Galeria de Imagens República do Centro
+                      </i> Galeria de Imagens <strong>Tela Inicial</strong>
                     </h3>
                     As imagens alteradas aqui são espelhadas no site
                   </div>
                   <div class="card-body">
-                    <div class="row fotos_republicas" data-galeria="1" id='fotos_republicas'>
+                    <div class="row fotos_republicas" data-galeria="4" id='fotos_republicas'>
                        
                     
                       <!--Loop com as imagens no banco de dados-->
                       <script id="loop_fotos" type="x-tmpl-mustache">
                       
-                      <div class="card img-fluid remover_todas_fotos" style="width:300px;height:298.5px;">
+                      <div class="card img-fluid remover_todas_fotos" style="width:780px;height:458.5px;">
                         <img class="card-img-top" src="{{link}}" alt="Card image" style="width:100%;height:100%;">
-                        <div class="card-img-overlay ">
-                          <h4 class="card-title">{{descricao}}</h4>                          
-                          <a href="#" class="btn btn-danger remover_imagem" data-id_imagem="{{id_imagem}}">Remover Imagem</a>
+                        <div class="card-img-overlay ">                                                  
+                         
+                        <div class="file btn btn-dark botao_upload" >
+                              Trocar Imagem
+                              <input type="file" class='atualizar_capa' data-id_imagem="{{id_imagem}}" accept="image/*"/>
+                        </div><a>
                         </div>
                       </div>   
                       
                      
                       </script>
-                      <!--Fim do Looping-->
-                      <!--Card para adicionar novas Fotos-->
-                        
-                        <div class="card img-fluid" style="width:300px;height:298.5px;">
-                        <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/republica-ecfe3.appspot.com/o/r2%2Fplus.png?alt=media&token=d826d990-dc21-486b-82b3-357cc6f9e85a" alt="Card image" style="width:100%;height:100%;">
-                        <div class="card-img-overlay">
-                          <h4 class="card-title">+ Add Nova Foto</h4>                          
-                          <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#modal-galeria">Inserir</a>
-                        </div>
-                      </div>   
-<div>
-                        
-                      
-                      <!--Fim do card de adição de fotos-->
+                      <!--Fim do Looping-->                      
                     </div>
                   </div>
                 </div>
@@ -86,7 +76,7 @@ include_once ('./php/verifica_sessao.php');
             <div class="modal-dialog">
               <div class="modal-content">
                 <!--FORM para atualizar imagens-->
-                <form action="" id='form_republica_imagens' method="POST">
+                <form action="#" id='form_republica_imagens' method="POST")>
                   <!--Chama o MODAL-->    
                   <div class="modal-header">
                     <h5 class="modal-title">Atualizar Dados de Vagas
@@ -152,11 +142,11 @@ include_once ('./php/verifica_sessao.php');
                         <!--Fim da Barra de Progresso-->
                         <!--Button para salvar e deletar-->
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="save_foto">Salvar Alterações  </button>
+                        <button type="submit" class="btn btn-primary" id="save_foto">Salvar Alterações  </button>
                       </div>
                       </form>
                   </div>
-                
+                <div>
                   
                   </div>
               </div>

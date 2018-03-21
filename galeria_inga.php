@@ -40,7 +40,7 @@ include_once ('./php/verifica_sessao.php');
                   <div class="card-header">
                     <h3>
                       <i class="fa fa-image">
-                      </i> Galeria de Imagens República do Ingá
+                      </i> Galeria de Imagens República do Centro
                     </h3>
                     As imagens alteradas aqui são espelhadas no site
                   </div>
@@ -50,30 +50,30 @@ include_once ('./php/verifica_sessao.php');
                     
                       <!--Loop com as imagens no banco de dados-->
                       <script id="loop_fotos" type="x-tmpl-mustache">
-                      <div class="col-sm-2 remover_todas_fotos">
-                        <div class="card">
-                          <img class="card-img-top" src="{{link}}" alt="Card image cap">
-                          <div class="card-body">
-                            <p class="card-text text-center">
-                              <strong>{{descricao}}
-                              </strong>
-                            </p>
-                          </div>
-                          <button type="button" class="btn btn-danger remover_imagem" data-id_imagem="{{id_imagem}}">Remover da Galeria</button>                          
-                        </div>   
-                      </div>
+                      
+                      <div class="card img-fluid remover_todas_fotos" style="width:300px;height:298.5px;">
+                        <img class="card-img-top" src="{{link}}" alt="Card image" style="width:100%;height:100%;">
+                        <div class="card-img-overlay ">
+                          <h4 class="card-title">{{descricao}}</h4>                          
+                          <a href="#" class="btn btn-danger remover_imagem" data-id_imagem="{{id_imagem}}">Remover Imagem</a>
+                        </div>
+                      </div>   
+                      
+                     
                       </script>
                       <!--Fim do Looping-->
                       <!--Card para adicionar novas Fotos-->
-                        <div class="col-sm-2">
-                        <div class="card">
-                          <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/republica-ecfe3.appspot.com/o/r2%2Fplus.png?alt=media&token=d826d990-dc21-486b-82b3-357cc6f9e85a" alt="Card image cap">
-                          <div class="card-body">                            
-                          </div>
-                          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-galeria">+ Add Nova Foto
-                          </button>
-                        </div>   
-                      </div>
+                        
+                        <div class="card img-fluid" style="width:300px;height:298.5px;">
+                        <img class="card-img-top" src="https://firebasestorage.googleapis.com/v0/b/republica-ecfe3.appspot.com/o/r2%2Fplus.png?alt=media&token=d826d990-dc21-486b-82b3-357cc6f9e85a" alt="Card image" style="width:100%;height:100%;">
+                        <div class="card-img-overlay">
+                          <h4 class="card-title">+ Add Nova Foto</h4>                          
+                          <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#modal-galeria">Inserir</a>
+                        </div>
+                      </div>   
+<div>
+                        
+                      
                       <!--Fim do card de adição de fotos-->
                     </div>
                   </div>
@@ -152,7 +152,7 @@ include_once ('./php/verifica_sessao.php');
                         <!--Fim da Barra de Progresso-->
                         <!--Button para salvar e deletar-->
                       <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" id="save_foto">Salvar Alterações  </button>
+                        <button type="button" class="btn btn-primary" id="save_foto">Salvar Alterações  </button>
                       </div>
                       </form>
                   </div>

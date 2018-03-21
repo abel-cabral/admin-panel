@@ -282,6 +282,15 @@ class UsuarioDAO
             ->getCon() , $sql); 
     }
 
+    //Atualizar Capa de Entrada
+    public function atualizar_capa($link,$idImage)
+    {
+        $sql = "UPDATE galeria SET link = 'https://firebasestorage.googleapis.com/v0/b/republica-ecfe3.appspot.com/o/r2%2F$link?alt=media&token=d826d990-dc21-486b-82b3-357cc6f9e85a' WHERE id_imagem = '$idImage'";
+        $resultado = mysqli_query($this
+            ->conexao
+            ->getCon() , $sql);
+    }
+
 } //FIM DA CLASSE
 
 ?>
