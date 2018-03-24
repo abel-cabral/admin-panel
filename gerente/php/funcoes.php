@@ -47,19 +47,18 @@ elseif($status == '4'){
                 'mensalidade' => $linha['mensalidade'],
                 'quarto' => $linha['quarto'],
                 'nome_republica' => $linha['nome_republica'],
-                'id_republica' => $linha['id_republica'],
+                'moradia' => $linha['moradia'],
                 'tipo_quarto' => $linha['tipo_quarto']
             );        
         }
     }
     //json_encode — Retorna a representação JSON de um valor
-    echo json_encode($resposta);    
-    
+    echo json_encode($resposta);  
 }
 //Deletar Morador
 elseif($status == '5'){
     $usuarios_index = new UsuarioDAO();
-    $buscar = $usuarios_index->deletar_morador($_POST['id_morador'], $_POST['id_republica'], $_POST['sexo']);    
+    $buscar = $usuarios_index->deletar_morador($_POST['id_morador'], $_POST['id_republica'], $_POST['sexo'], $_POST['quarto']);    
 }
 //Contar Vagas
 elseif($status == '6'){    

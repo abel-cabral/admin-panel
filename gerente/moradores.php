@@ -426,7 +426,7 @@
 																													</div>
 																												</div>
 																											</div>
-																											<a href="#" data-id_morador='{{id}}' data-id_republica='{{id_republica}}' data-sexo='{{sexo}}' class="btn btn-danger btn-sm id_morador">
+																											<a href="#" data-id_morador='{{id}}' data-id_republica='{{moradia}}' data-id_quarto='{{id_quarto}}' data-sexo='{{sexo}}' class="btn btn-danger btn-sm id_morador">
 																												<i class="fa fa-trash-o" aria-hidden="true"></i>
 																											</a>
 																										</td>

@@ -33,8 +33,9 @@
    });
 
    //Cadastrar Moradores
-   $("#form_morador").submit(function (e) {
-     e.preventDefault();
+   $("#form_morador").submit(function (e) {   
+    console.log($("#form_morador").serialize());
+    e.preventDefault();
      $.ajax({
        type: "POST",
        url: "./php/funcoes.php",
@@ -47,8 +48,14 @@
    });
 
    //Deletar Morador
-   $(document).on("click", ".id_morador", function () {
-     swal({
+   $(document).on("click", ".id_morador", function () {  
+    console.log('Seu id_morador é: '+$(this).data("id_morador")); 
+    console.log('Sua id_republica é: '+$(this).data("id_republica")); 
+    console.log('Seu sexo é: '+$(this).data("sexo")); 
+    console.log('Seu id_quarto é: '+$(this).data("id_quarto")); 
+    
+
+    swal({
        //Animação para escolha
        title: "Atenção!",
        text: "Deseja Remover Esse Morador?",
@@ -64,13 +71,13 @@
            url: "./php/funcoes.php",
            data: {
              status: "5",
-             id_morador: $(this).data("id_morador"),
-             id_republica: $(this).data("id_republica"),
-             sexo: $(this).data("sexo")
+             id_morador: $(this).data("id_morador"),//Número de Identificação do Morador
+             id_republica: $(this).data("id_republica"),//Número da Sua Republica 1, 2 ou 3
+             sexo: $(this).data("sexo"),// Seu sexo 'M' ou 'F'
+             quarto: $(this).data("id_quarto")//Seu tipo de quarto
            }, //Captura todos os valores no FORM e faz um OBJ.
            cache: false,
            success: function () {
-
              location.reload();
            }
          });
@@ -304,7 +311,8 @@
            quarto: data[contador]["tipo_quarto"],
            curso: data[contador]["curso"],
            republica: data[contador]["nome_republica"],
-           id_republica: data[contador]["id_republica"],
+           moradia: data[contador]["moradia"],
+           id_quarto: data[contador]["quarto"],
            random_foto: parseInt(Math.random() * 4 + 1), //Joga um numero aleatório pra puxar os avatares ex: m1,m2,m3
 
          }); //O que irei escrever {chave: valor}
@@ -328,7 +336,7 @@
      cache: false,
      dataType: "JSON",
      success: function (data) {
-       alert("Cheguei");
+       
      }
    });
  }

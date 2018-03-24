@@ -105,33 +105,30 @@ class UsuarioDAO
     }
 
     //Deletar Morador
-    public function deletar_morador($id_morador, $id_republica, $sexo)
+    public function deletar_morador($id_morador, $id_republica, $sexo, $quarto)
     {
         //DESCUBRO O SEXO E O QUARTO
         if ($sexo == 'F')
         { //OK
-            if ($quarto % 2 !== 0)
-            { //Se o Quarto for Impar, logo ele é QUADRUPLO
-                $quarto = 4; //Na tabela 'quartos' quarto femininos são pares;
+            if ($quarto == 4)
+            { //Se o Quarto for Impar, logo ele é QUADRUPLO                
                 $tipo = 'quadruplo_feminino';   
                 
             }
             else
-            { //Se o quarto for Par
-                $quarto = 2;
+            { //Se o quarto for Par                
                 $tipo = 'duplo_feminino';
             }
         }
         else
         {
-            if ($quarto % 2 == 0)
+            if ($quarto == 1)
             { //DUPLO - Quartos Masculinos são Impares 1 e 3
                 $quarto = 1; //Na tabela 'quartos' quarto masculino são impares
                 $tipo = 'duplo_masculino';
             }
             else
-            { //QUADRUPLO
-                $quarto = 3;    
+            { //QUADRUPLO                   
                 $tipo = 'quadruplo_masculino';                           
             }
         }
