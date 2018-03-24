@@ -1,0 +1,32 @@
+.hidden {
+    visibility: hidden;   
+}
+.card .img-fluid{
+    margin-left: 9px!important;
+    margin-top: 5px!important;
+    border:1px solid grey;
+}
+
+/*O botão é oculto e só aprarece quando a imagem é selecionada*/
+#save_foto{
+    visibility: hidden;    
+}
+
+.botao_upload {
+    position: relative;
+    overflow: hidden;
+    
+  }
+  .botao_upload input {
+    cursor: pointer;
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: 320px;
+  }

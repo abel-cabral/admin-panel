@@ -250,51 +250,22 @@ fieldset[disabled] .btn-xl.active {
         border-radius: 3px;
     }
     .navbar-default.navbar-shrink {
-        padding: 4px 0;
-        background-color: #222;
+        padding: 10px 0;
+        background-color: rgba(34, 34, 34, 0.93);
     }
     .navbar-default.navbar-shrink .navbar-brand {
         font-size: 1.5em;
     }
 }
 
-header {
+body {
     width: 100%;
     text-align: center;
-    color: #fff;
-    background-attachment: scroll;
-    
-}
-
-.centro {    
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    
-}
-
-.inga {    
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    
-}
-
-.vermelha {
-    
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    
+    color: #fff;    
+   background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+			background-size:  cover;
 }
 
 header .intro-text {
@@ -739,17 +710,10 @@ section h3.section-subheading {
     margin-top: 0;
 }
 
-.soll {
+section#contact {
     background-color: #222;
-    background-image: url(../imagens/planodefundo/terceirofundo.jpg);
-    background-size: cover;
-}
-
-.mar {
-    background-color: #222;
-    background-image: url(../imagens/planodefundo/primeirofundo.jpg);
-    background-size: cover;
     
+    background-size: cover;
 }
 
 section#contact .section-heading {
@@ -813,8 +777,6 @@ section#contact .text-danger {
 footer {
     padding: 25px 0;
     text-align: center;
-    background-color: #222;
-    border-top: 1px solid rgba(0, 0, 0, 0.45);
 }
 
 footer span.copyright {
@@ -822,7 +784,6 @@ footer span.copyright {
     text-transform: none;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 40px;
-    color: white;    
 }
 
 footer ul.quicklinks {
@@ -969,12 +930,26 @@ body {
     display: none; 
 }
 
-/*Botões Há vagas e não há*/
-.remover-span {
-    display: none;
+#about{
+    background-color: rgba(34, 34, 34, 0.93);
+    color: #f34949!important;
+    border-top: 1px solid rgba(0, 0, 0, 0.45);
 }
 
-.img-fluid {
-    max-width: 100%;
-    height: 280px;
-  }
+.nome_republica{
+    transition: transform .2s; /* Animation */    
+}
+.nome_republica:hover{
+    cursor: pointer;
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f2dede!important;
+    border-top: 1px solid #f8f8f800;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    visibility: hidden;
+}
+
