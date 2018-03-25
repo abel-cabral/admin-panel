@@ -480,3 +480,4 @@ function guid() {
   return s4() + s4();
 }
 
+//
