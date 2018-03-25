@@ -218,8 +218,8 @@ $(document).ready(function () {
         },
         function complete() {
           if (teste_sql == "atualizar_capa") {
-            //Conforme o nome da função passada o resultado será outro
-            nome_img = null;
+            //Conforme o nome da função passada o resultado será outro            
+            return false;
             break;
           } else {
             $.fn.gravanosql();
