@@ -171,7 +171,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<h2 class="section-heading">Um Pouco Sobre Hostinger</h2>
+						<h2 class="section-heading">Um Pouco Sobre Niterói</h2>
 						<h3 class="section-subheading text-muted">A República do Cláudio fica localizada no coração de Niterói, bem próximo as principais faculdades, rodoviárias, shoppings e etc.</h3>
 					</div>
 				</div>
@@ -239,7 +239,7 @@
 			<!-- Aqui incluimos o comentários do facebook !-->
 			<li class="timeline-inverted">
 				<div class="intro-lead-in">
-					<h2>Deixe seu Comentário Aqui :)</h2>
+					<h2>Deixe seu Comentário Aqui ;)</h2>
 				</div>
 				<div class="fb-comments" data-href="http://www.republicadoclaudinho.com" data-width="100%" data-numposts="10" data-colorscheme="dark"></div>
 			</li>
