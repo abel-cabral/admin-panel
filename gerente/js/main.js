@@ -220,13 +220,8 @@ $(document).ready(function () {
         },
         function complete() {
           if (teste_sql == "atualizar_capa") {
-<<<<<<< HEAD
-            //Conforme o nome da função passada o resultado será outro            
-=======
-            //Conforme o nome da função passada o resultado será outro
->>>>>>> parent of e154e4a... 2.3.4
             return false;
-            break;
+            break;//
           } else {
             $.fn.gravanosql();
             e.preventDefault();
