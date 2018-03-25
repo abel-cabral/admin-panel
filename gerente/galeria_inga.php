@@ -40,13 +40,13 @@ include_once ('./php/verifica_sessao.php');
                   <div class="card-header">
                     <h3>
                       <i class="fa fa-image">
-                      </i> Galeria de Imagens República do Centro
+                      </i> Galeria de Imagens República do Ingá
                       <button href="#" class="btn btn-dark" data-toggle="modal" data-target="#modal-galeria" style="float: right">+Nova Imagem</button>
                     </h3>
-                    As imagens alteradas aqui são espelhadas no site
+                    As imagens alteradas aqui são espelhadas no site. Obs Caso tenha apenas 1 foto ela só aparecerá quando você adiconar uma segunda.
                   </div>
                   <div class="card-body">
-                    <div class="row fotos_republicas col d-flex justify-content-center" data-galeria="1" id='fotos_republicas'>
+                    <div class="row fotos_republicas col d-flex justify-content-center" data-galeria="2" id='fotos_republicas'>
 
 
 

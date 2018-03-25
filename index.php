@@ -135,7 +135,7 @@
 							<div class="col-md-12 text-center">
                                                 <div class="nome_republica" onclick="location.href='./inga.html';">
                                                     <div class="panel-heading">
-													<div style="font-size:11em; color:#75ad56">
+													<div style="font-size:11em; color:#feea56">
 														<i class="fa fa-fort-awesome castelo"></i>
 													</div>                                                        
                                                         <h3>República do <br>Ingá</h3>

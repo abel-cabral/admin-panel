@@ -7,6 +7,7 @@ include_once('./conexao.php');
 //Váriavel de Decisão
 @$status = isset($_POST['status'])? $_POST['status'] : $_GET['status'];//Se não houver um POST, status receberá um GET se houver
 //Captura valores do POST de Login
+
 //Login do ADM
 if($status == '1'){
     $usuarios_index = new UsuarioDAO();
@@ -16,15 +17,18 @@ if($status == '1'){
         $_SESSION['resultado'] = mysqli_fetch_array($buscar, MYSQL_ASSOC);//Esse Array captura todos os valores no BD            
     }
 }
+
 //Deslogar ADM
 elseif($status == '2'){    
     session_destroy();
 }
+
 //Cadastrar Morador
 elseif($status == '3'){
     $usuarios_index = new UsuarioDAO();
     $buscar = $usuarios_index->cadastro(transformar($_POST['nome']), $_POST['sexo'], $_POST['tel'], transformar($_POST['curso']), $_POST['mensalidade'], $_POST['quarto']);     
 }
+
 //Listar Todos Moradores
 elseif($status == '4'){
     $usuarios_index = new UsuarioDAO();
@@ -55,11 +59,13 @@ elseif($status == '4'){
     //json_encode — Retorna a representação JSON de um valor
     echo json_encode($resposta);  
 }
+
 //Deletar Morador
 elseif($status == '5'){
     $usuarios_index = new UsuarioDAO();
     $buscar = $usuarios_index->deletar_morador($_POST['id_morador'], $_POST['id_republica'], $_POST['sexo'], $_POST['quarto']);    
 }
+
 //Contar Vagas
 elseif($status == '6'){    
     $usuarios_index = new UsuarioDAO();//total de republicas, 
@@ -83,18 +89,19 @@ elseif($status == '6'){
                 'telefone' => $linha['telefone'],
                 'curso' => $linha['curso'],
                 'mensalidade' => $linha['mensalidade'],
-                'quarto' => $linha['tipo_quarto'],
+                'quarto' => $linha['quarto'],
                 'nome_republica' => $linha['nome_republica'],                                
                 'valor_quarto' => $linha['valor_quarto'],
                 'conte' => $linha['conte'],
                 'id_republica' => $linha['id_republica']              
-            );        
+            );                 
         }
+        
     }
     }
-    //json_encode — Retorna a representação JSON de um valor    
-    echo $_SESSION['total'] = $resposta;//Só chama no php por essa essão dando um echo     
+    echo json_encode($resposta);
 }
+
 //Contar Vagas Duplas
 elseif($status == '7'){
    
@@ -127,9 +134,8 @@ elseif($status == '7'){
                 );        
             }
         }
-        } 
-       $_SESSION[$_GET['tipo_vaga']] = $resposta;  
-       echo json_encode($resposta); 
+        }        
+       echo json_encode($resposta); //Resposta AJAX
 }
 //Conta vagas Quadruplas
 elseif($status == '8'){
@@ -163,9 +169,8 @@ elseif($status == '8'){
                 );        
             }
         }
-        }
-        //json_encode — Retorna a representação JSON de um valor              
-     $_SESSION[$_GET['tipo_vaga']] = $resposta;         
+        }                
+        echo json_encode($resposta);//Resposta AJAX         
 }
 //-------------------------------------------------------------------
 //QUANTIDADE DE VAGAS OFERECIDAS + VALOR DE CADA QUARTO POR REPUBLICA
@@ -181,12 +186,9 @@ elseif($status == '10'){
 
     if($buscar == true){
         $linha = mysqli_fetch_array($buscar, MYSQL_ASSOC);
-        $resposta = $linha;
-        
-        echo $resposta['soma'];
-        
-        
+        $resposta = $linha;                
     }
+    echo json_encode($resposta);//Resposta AJAX 
 }
 //Envia o link da imagem upada no firebase para o sql
 elseif($status == '11'){

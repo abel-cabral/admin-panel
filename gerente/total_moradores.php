@@ -8,7 +8,7 @@
     <?php include_once('./php/header.php');?>
         <!--Header-->
 
-        <body class="adminbody" onload="todos_Moradores();">
+        <body class="adminbody" onload="">
             <div id="main">
                 <!-- top bar navigation -->
                 <?php 
@@ -90,17 +90,17 @@
                                                     <ul class="list-group text-justify">
                                                         
                                                     
-                                                        <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Total de Vagas: <strong id='r1total'><?php echo $_SESSION['total'][1]['conte']; ?></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-graduation-cap"></i> Total de Moradores: <strong id='r1'><?php echo $_SESSION['total'][1]['conte']; ?></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Masculina Quarto Duplo: <strong id='r1M2'><?php  echo($_SESSION['duplaM'][1]['dupla']); ?></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Feminina Quarto Duplo: <strong id='r1F2'><?php  echo($_SESSION['duplaF'][1]['dupla']); ?></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Masculina Quarto Quádruplo: <strong id='r1M4'><?php  echo($_SESSION['quadM'][1]['quad']); ?></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Feminina Quarto Quádruplo: <strong id='r1F4'><?php  echo($_SESSION['quadF'][1]['quad']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Máxima: <strong id='r1total'>0</strong ></li>
+                                                        <li class="list-group-item"><i class="fa fa-graduation-cap"></i> Número de Moradores Atuais: <strong id='r1'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Duplo: <strong id='r1M2'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Duplo: <strong id='r1F2'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Quádruplo: <strong id='r1M4'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Quádruplo: <strong id='r1F4'>0</strong></li>
 
                                                         
                                                     </ul>                                                    
                                                     <div class="panel-footer" data-toggle="modal" data-target="#modal-republica">
-                                                        <a class="btn btn-lg btn-block btn-danger nome_republica" href="#" data-republica="<?php echo $_SESSION['total'][1]['id_republica']; ?>">Alterar Dados</a>
+                                                        <a class="btn btn-lg btn-block btn-danger nome_republica" href="#" data-republica="1">Alterar Dados</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -119,15 +119,15 @@
                                                         <p><strong id='rvagas2'>Carregando</strong></p>
                                                     </div>
                                                     <ul class="list-group text-justify">
-                                                    <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Total de Vagas: <strong id='r2total'><?php echo $_SESSION['total'][2]['conte']; ?></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-graduation-cap"></i> Total de Moradores: <strong id='r2'><?php echo $_SESSION['total'][2]['conte']; ?></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Masculina Quarto Duplo: <strong id='r2M2'><?php  echo($_SESSION['duplaM'][2]['dupla']); ?></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Feminina Quarto Duplo: <strong id='r2F2'><?php  echo($_SESSION['duplaF'][2]['dupla']); ?></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Masculina Quarto Quádruplo: <strong id='r2M4'><?php  echo($_SESSION['quadM'][2]['quad']); ?></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Feminina Quarto Quádruplo: <strong id='r2F4'><?php  echo($_SESSION['quadF'][2]['quad']); ?></strong></li>
+                                                    <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Máxima: <strong id='r2total'>0</strong ></li>
+                                                        <li class="list-group-item"><i class="fa fa-graduation-cap"></i> Número de Moradores Atuais: <strong id='r2'>0</strong ></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Duplo: <strong id='r2M2'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Duplo: <strong id='r2F2'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Quádruplo: <strong id='r2M4'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Quádruplo: <strong id='r2F4'>0</strong></li>
                                                     </ul>
                                                     <div class="panel-footer" data-toggle="modal" data-target="#modal-republica">
-                                                        <a class="btn btn-lg btn-block btn-warning nome_republica" href="#" data-republica="<?php echo $_SESSION['total'][2]['id_republica']; ?>">Alterar Dados</a>
+                                                        <a class="btn btn-lg btn-block btn-warning nome_republica" href="#" data-republica="2">Alterar Dados</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,15 +144,15 @@
                                                         <p><strong id='rvagas3'>Carregando</strong></p>
                                                     </div>
                                                     <ul class="list-group text-justify">
-                                                        <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Total de Moradores: <strong id='r3total'><?php echo $_SESSION['total'][3]['conte']; ?></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-graduation-cap"></i> Total de Moradores: <strong id='r3'><?php echo $_SESSION['total'][3]['conte']; ?></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Masculina Quarto Duplo: <strong id='r3M2'><?php  echo($_SESSION['duplaM'][3]['dupla']); ?></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Feminina Quarto Duplo: <strong id='r3F2'><?php  echo($_SESSION['duplaF'][3]['dupla']); ?></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Masculina Quarto Quádruplo: <strong id='r3M4'><?php  echo($_SESSION['quadM'][3]['quad']); ?></strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Feminina Quarto Quádruplo: <strong id='r3F4'><?php  echo($_SESSION['quadF'][3]['quad']); ?></strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Máxima: <strong id='r3total'>0</strong ></li>
+                                                        <li class="list-group-item"><i class="fa fa-graduation-cap"></i> Número de Moradores Atuais: <strong id='r3'></strong ></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Duplo: <strong id='r3M2'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Duplo: <strong id='r3F2'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Quádruplo: <strong id='r3M4'>0</strong></li>
+                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Quádruplo: <strong id='r3F4'>0</strong></li>
                                                     </ul>
                                                     <div class="panel-footer" data-toggle="modal" data-target="#modal-republica">
-                                                        <a class="btn btn-lg btn-block btn-success nome_republica" href="#" data-republica="<?php echo $_SESSION['total'][3]['id_republica']; ?>">Alterar Dados</a>
+                                                        <a class="btn btn-lg btn-block btn-success nome_republica" href="#" data-republica="3">Alterar Dados</a>
                                                     </div>
                                                 </div>
                                             </div>

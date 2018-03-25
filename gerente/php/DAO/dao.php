@@ -154,7 +154,7 @@ class UsuarioDAO
     //Total de Vagas da Republica
     public function vaga_ocupada($n)
     {
-        $sql = "select count(m.moradia) as conte, m.*, q.*, r.* from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = $n";
+        $sql = "select count(m.moradia) as conte, m.*, q.id_quarto, q.tipo_quarto, q.valor_quarto, r.* from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = $n";
         $resultado = mysqli_query($this
             ->conexao
             ->getCon() , $sql);
@@ -319,7 +319,7 @@ class UsuarioDAO
     //Atualizar Capa de Entrada
     public function atualizar_capa($link,$idImage)
     {
-        $sql = "UPDATE galeria SET link = 'https://firebasestorage.googleapis.com/v0/b/republica-ecfe3.appspot.com/o/r2%2F$link?alt=media&token=d826d990-dc21-486b-82b3-357cc6f9e85a' WHERE id_imagem = '$idImage'";
+        $sql = "UPDATE galeria SET link = 'https://firebasestorage.googleapis.com/v0/b/republica-ecfe3.appspot.com/o/r2%2F$link?alt=media&token=d826d990-dc21-486b-82b3-357cc6f9e85a' WHERE id_imagem = '$idImage' and id_republica = 4";
         $resultado = mysqli_query($this
             ->conexao
             ->getCon() , $sql);
