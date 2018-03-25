@@ -127,7 +127,9 @@ $(document).ready(function () {
   });
 
   //Função salva imagem firebase
-  $("#fileButton").on("change",($.fn.captura_file = function (e) {
+  $("#fileButton").on(
+    "change",
+    ($.fn.captura_file = function (e) {
       //Ao selecionar um arquivo inicia o evento
       $("#save_foto").css("visibility", "visible"); //Botão Gravar Aparece
       file = this.files[0];
@@ -218,7 +220,11 @@ $(document).ready(function () {
         },
         function complete() {
           if (teste_sql == "atualizar_capa") {
+<<<<<<< HEAD
             //Conforme o nome da função passada o resultado será outro            
+=======
+            //Conforme o nome da função passada o resultado será outro
+>>>>>>> parent of e154e4a... 2.3.4
             return false;
             break;
           } else {
