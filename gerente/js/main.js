@@ -127,9 +127,7 @@ $(document).ready(function () {
   });
 
   //Função salva imagem firebase
-  $("#fileButton").on(
-    "change",
-    ($.fn.captura_file = function (e) {
+  $("#fileButton").on("change",($.fn.captura_file = function (e) {
       //Ao selecionar um arquivo inicia o evento
       $("#save_foto").css("visibility", "visible"); //Botão Gravar Aparece
       file = this.files[0];
@@ -221,6 +219,7 @@ $(document).ready(function () {
         function complete() {
           if (teste_sql == "atualizar_capa") {
             //Conforme o nome da função passada o resultado será outro
+            file = empty();
             return false;
           } else {
             $.fn.gravanosql();
