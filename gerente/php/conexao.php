@@ -1,10 +1,10 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 class Conexao{
-    private $usuario = "id1473715_republicadoclaudinho";
+    private $usuario = "u499611759_abel";
     private $senha = "cd090983";
-    private $caminho = "localhost";
-    private $banco = "id1473715_republica";
+    private $caminho = "mysql.hostinger.com.br";
+    private $banco = "u499611759_repu";
     private $con;
     
     public function __construct(){
