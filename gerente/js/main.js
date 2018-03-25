@@ -219,8 +219,8 @@ $(document).ready(function () {
         function complete() {
           if (teste_sql == "atualizar_capa") {
             //Conforme o nome da função passada o resultado será outro
-            file = empty();
-            return false;
+            nome_img = null;
+            break;
           } else {
             $.fn.gravanosql();
             e.preventDefault();
