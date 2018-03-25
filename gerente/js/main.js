@@ -1,14 +1,14 @@
 //Lista Varoiaveis Globais
 var file, nome_img;
-
 $(document).ready(function () {
+  
   //Logar
   $("#form1").submit(function (e) {
     e.preventDefault();
     $.ajax({
       type: "POST",
       url: "./php/funcoes.php",
-      data: $("#form1").serialize(),
+      data: $("#form1").serialize(),      
       success: function (data) {
         window.location = "./index.php";
       }
@@ -16,19 +16,19 @@ $(document).ready(function () {
   });
 
   //Deslogar
-  $("#deslogue").click(function () {
+  $(document).on("click", "#deslogue", function () {     
     $.ajax({
-      type: "POST",
+      type: "GET",
       url: "./php/funcoes.php",
-      data: "status=2",
+      data: {status : '2'},
       cache: false,
-      success: function () {
-        location.reload();
+      success: function() {        
+        window.location = "./login.php";
       },
       error: function () {
-        alert("Houve algum erro, Não desloguei.");
+        alert("Houve algum erro, Não desloguei.");        
       }
-    });
+    });    
   });
 
   //Cadastrar Moradores

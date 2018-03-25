@@ -1,7 +1,8 @@
 <?php
-session_start();
 include_once('./DAO/dao.php');
 include_once('./conexao.php');
+session_start();
+
 @$nome = $_POST['nome'];
 @$senha = $_POST['senha'];
 //Váriavel de Decisão
@@ -19,8 +20,11 @@ if($status == '1'){
 }
 
 //Deslogar ADM
-elseif($status == '2'){    
+elseif($status == '2'){  
+          
+    session_unset();
     session_destroy();
+    return true;    
 }
 
 //Cadastrar Morador
