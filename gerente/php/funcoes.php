@@ -180,7 +180,22 @@ elseif($status == '8'){
 //QUANTIDADE DE VAGAS OFERECIDAS + VALOR DE CADA QUARTO POR REPUBLICA
 elseif($status == '9'){
     $usuarios_index = new UsuarioDAO();
-    $buscar = $usuarios_index->numero_vagas($_POST['id_republica'], $_POST['dM'],$_POST['dF'],$_POST['qM'],$_POST['qF']);//contar na tabela, republica, sexo, tipo de quarto        
+    //variaveis locais
+    $dM=$_POST['dM'] - $_POST['dm'];                   $dF=$_POST['dF'] - $_POST['df'];
+    $qM=$_POST['qM'] - $_POST['qm'];                   $qF=$_POST['qF'] - $_POST['qf']; 
+    $aprovacao = true;
+
+    if($dM <= 0){//Testa se o valor da vaga é maior que o das vagas ocupadas, se for ele grava no banco.
+        $aprovacao = false;
+    }if($dF <= 0){
+        $aprovacao = false;
+    }if($qM <= 0){
+        $aprovacao = false;
+    }if($qF <= 0){
+        $aprovacao = false;
+    }if($aprovacao == true){
+        $buscar = $usuarios_index->numero_vagas($_POST['id_republica'], $dM, $dF, $qM, $qF);//contar na tabela, republica, sexo, tipo de quarto        
+    }
     $buscar = $usuarios_index->atualiza_mensalidade($_POST['mendupla'], $_POST['menquad'], $_POST['id_republica']);
 }
 //Procentagem de Ocupação

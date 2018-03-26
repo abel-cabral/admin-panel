@@ -83,10 +83,18 @@ $(document).ready(function () {
     });
   });
 
+  //------------------------------------------------------------------------------------------- INÍCIO DA ATUALIZAÇÃO DE VAGAS OFERECIDAS
   //Atualizar Vagas --Capta o id da republica clicada
   $(document).on("click", ".nome_republica", function () {
-    //Obs nem sempre o jquery capta o id, entao precisamos indicar um cmainho mais lógico
-    var id_republica = $(this).data("republica"); //Capta o id clicado e atribui a variavel
+    var dm, df, qm, qf, id_republica; //declaração variaveis
+
+    //Captura de valores
+    id = $(this).data("republica"); //id da república capturado
+    dm = parseInt($('#r' + id + 'M2').text());
+    df = parseInt($('#r' + id + 'F2').text());
+    qm = parseInt($('#r' + id + 'M4').text());
+    qf = parseInt($('#r' + id + 'F4').text());
+    total = dm + df + qm + qf; //Em suma eu passo pro ajax as vagas que já tenho ocupadas, eu sei é meio burro isso
 
     //Chama a função que faz a atualização
     $("#form_republica_vaga").submit(function (e) {
@@ -106,16 +114,18 @@ $(document).ready(function () {
             type: "POST",
             url: "./php/funcoes.php",
             data: $("#form_republica_vaga").serialize() +
-              "&status=9&id_republica=" +
-              id_republica, //Captura todos os valores no FORM e faz um OBJ.
+              "&status=9&id_republica=" + id+"&dm="+dm+"&df="+df+"&qm="+qm+"&qf="+qf, //Captura todos os valores no FORM e faz um OBJ.
             cache: false,
-            success: function () {
+            success: function (data) {
               swal("Suas informações foram salvar com sucesso.", {
                 icon: "success"
               });
               $(".swal-button--confirm").on("click", function () {
                 location.reload();
               });
+            },
+            error:function(data){
+              alert('Você não pode oferecer menos vagas que a quantidade atual de moradores.');
             }
           });
         } else {
@@ -127,6 +137,7 @@ $(document).ready(function () {
       $("#modal-republica").modal("toggle"); //E caso o modal bootstrap nao feche isso o força
     });
   });
+  //------------------------------------------------------------------------------------------- FIM DA ATUALIZAÇÃO DE VAGAS OFERECIDAS
 
   //Função salva imagem firebase
   $("#fileButton").on(
@@ -138,7 +149,7 @@ $(document).ready(function () {
     })
   );
 
-//------------------------------------------------------------------------------------------- INÍCIO DELETAR FOTO GALERIA
+  //------------------------------------------------------------------------------------------- INÍCIO DELETAR FOTO GALERIA
   $(document).on("click", ".remover_imagem", function () {
     var id_imagem = $(this).data("id_imagem"); //Pega o id pela data
 
@@ -183,9 +194,9 @@ $(document).ready(function () {
       }
     });
   });
-//------------------------------------------------------------------------------------------- FIM DELETAR FOTO GALERIA
+  //------------------------------------------------------------------------------------------- FIM DELETAR FOTO GALERIA
 
-//------------------------------------------------------------------------------------------- INÍCIO SALVA IMG NO FIREBASE
+  //------------------------------------------------------------------------------------------- INÍCIO SALVA IMG NO FIREBASE
   //Gravar no Firebase
   $("#save_foto").click(
     ($.fn.gravar_imagem = function (e, teste_sql) {
@@ -225,7 +236,7 @@ $(document).ready(function () {
         function complete() {
           if (teste_sql == "atualizar_capa") {
 
-          } else {            
+          } else {
             $.fn.gravanosql();
             e.preventDefault();
           }
@@ -233,9 +244,9 @@ $(document).ready(function () {
       );
     })
   );
-//------------------------------------------------------------------------------------------- FIM SALVA IMG NO FIREBASE
+  //------------------------------------------------------------------------------------------- FIM SALVA IMG NO FIREBASE
 
-//------------------------------------------------------------------------------------------- INÍCIO LINK DA IMG PARA O SQL
+  //------------------------------------------------------------------------------------------- INÍCIO LINK DA IMG PARA O SQL
   //GRAVA O LINK NO SQL
   $.fn.gravanosql = function () {
     //Variaveis da Função
@@ -300,7 +311,7 @@ $(document).ready(function () {
         );
       },
       function complete() {
-        
+
       }
     );
 
@@ -327,7 +338,7 @@ $(document).ready(function () {
       }
     });
   });
-//------------------------------------------------------------------------------------------- FIM UPDATE FOTOS CAPAS
+  //------------------------------------------------------------------------------------------- FIM UPDATE FOTOS CAPAS
 
   //Chamando Funções externas ao Jquery
   vagas_total();
@@ -355,7 +366,7 @@ function todos_Moradores() {
         var rendered = Mustache.render(template, {
           id: data[contador]["id_morador"],
           nome: data[contador]["nome"],
-          sexo: data[contador]["sexo"],
+          sexo: data[contador]["sexo"].toLowerCase(),
           telefone: data[contador]["telefone"],
           mensalidade: data[contador]["mensalidade"],
           quarto: data[contador]["tipo_quarto"],
