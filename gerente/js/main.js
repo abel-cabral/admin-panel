@@ -219,9 +219,8 @@ $(document).ready(function () {
           );
         },
         function complete() {
-          if (teste_sql == "atualizar_capa") {
-            return false;
-            break;//
+          if (teste_sql == "atualizar_capa") {            
+            
           } else {
             $.fn.gravanosql();
             e.preventDefault();

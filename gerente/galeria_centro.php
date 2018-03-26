@@ -10,7 +10,7 @@ include_once ('./php/verifica_sessao.php');
   <style>
   </style>
 
-  <body class="adminbody" onload="listar_fotos('1');">
+  <body class="adminbody" onload="listar_fotos(1);">
     <!--Aqui chamamos a função e passamos o id da republica que ela deve buscar as fotos-->
     <div id="main">
       <div class="content-page">

@@ -3,7 +3,7 @@ header('Content-Type: text/html; charset=utf-8');
 class Conexao{
     private $usuario = "u211833621_abel";
     private $senha = "fcJC1DUwv4f4";
-    private $caminho = "sql139.main-hosting.eu";
+    private $caminho = "mysql.hostinger.com.br";
     private $banco = "u211833621_rpb";
     private $con;
     

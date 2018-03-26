@@ -1,6 +1,7 @@
 <?php
 include_once('./php/verifica_sessao.php');    
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <!--Header-->
