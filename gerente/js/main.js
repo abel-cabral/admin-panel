@@ -1,14 +1,14 @@
 //Lista Varoiaveis Globais
 var file, nome_img;
 $(document).ready(function () {
-  
+
   //Logar
   $("#form1").submit(function (e) {
     e.preventDefault();
     $.ajax({
       type: "POST",
       url: "./php/funcoes.php",
-      data: $("#form1").serialize(),      
+      data: $("#form1").serialize(),
       success: function (data) {
         window.location = "./index.php";
       }
@@ -16,19 +16,21 @@ $(document).ready(function () {
   });
 
   //Deslogar
-  $(document).on("click", "#deslogue", function () {     
+  $(document).on("click", "#deslogue", function () {
     $.ajax({
       type: "GET",
       url: "./php/funcoes.php",
-      data: {status : '2'},
+      data: {
+        status: '2'
+      },
       cache: false,
-      success: function() {        
+      success: function () {
         window.location = "./login.php";
       },
       error: function () {
-        alert("Houve algum erro, Não desloguei.");        
+        alert("Houve algum erro, Não desloguei.");
       }
-    });    
+    });
   });
 
   //Cadastrar Moradores
@@ -136,7 +138,7 @@ $(document).ready(function () {
     })
   );
 
-  //Deletar Foto da Galeria
+//------------------------------------------------------------------------------------------- INÍCIO DELETAR FOTO GALERIA
   $(document).on("click", ".remover_imagem", function () {
     var id_imagem = $(this).data("id_imagem"); //Pega o id pela data
 
@@ -181,22 +183,24 @@ $(document).ready(function () {
       }
     });
   });
+//------------------------------------------------------------------------------------------- FIM DELETAR FOTO GALERIA
 
+//------------------------------------------------------------------------------------------- INÍCIO SALVA IMG NO FIREBASE
   //Gravar no Firebase
   $("#save_foto").click(
     ($.fn.gravar_imagem = function (e, teste_sql) {
-      
+
       //Variavel recebe nome aleatório
-      nome_img = guid()+file.name;
+      nome_img = guid() + file.name;
       console.log(nome_img)
 
       //Create a Storage ref
       var storageRef = firebase.storage().ref("r2/" + nome_img);
-      
+
 
       // Upload a File
       var task = storageRef.put(file);
-      
+
       //Update Progress Bar
       task.on(
         "state_changed",
@@ -219,9 +223,9 @@ $(document).ready(function () {
           );
         },
         function complete() {
-          if (teste_sql == "atualizar_capa") {            
-            
-          } else {
+          if (teste_sql == "atualizar_capa") {
+
+          } else {            
             $.fn.gravanosql();
             e.preventDefault();
           }
@@ -229,7 +233,9 @@ $(document).ready(function () {
       );
     })
   );
+//------------------------------------------------------------------------------------------- FIM SALVA IMG NO FIREBASE
 
+//------------------------------------------------------------------------------------------- INÍCIO LINK DA IMG PARA O SQL
   //GRAVA O LINK NO SQL
   $.fn.gravanosql = function () {
     //Variaveis da Função
@@ -261,13 +267,43 @@ $(document).ready(function () {
       }
     });
   };
+  //------------------------------------------------------------------------------------------- FIM LINK DA IMG PARA O SQL
 
-  //UPDATE FOTOS CAPAS
+  //------------------------------------------------------------------------------------------- INÍCIO UPDATE FOTOS CAPAS
   $(document).on("change", ".atualizar_capa", function () {
     //Ao selecionar nova capa roda a função e atualiza
     id_capa = $(this).data("id_imagem");
     file = this.files[0];
-    $.fn.gravar_imagem("atualizar_capa");    
+
+    //Grava no Banco
+    //Variavel recebe nome aleatório
+    nome_img = guid() + file.name;
+
+    //Create a Storage ref
+    var storageRef = firebase.storage().ref("r2/" + nome_img);
+
+
+    // Upload a File
+    var task = storageRef.put(file);
+
+    //Update Progress Bar
+    task.on(
+      "state_changed",
+      function progress(snapshot) {
+        //Seria o Status       
+      },
+      function error(err) {
+        swal(
+          "Erro ao conectar na Firebase!",
+          "Consulte o Desenvolvedo!",
+          "error"
+        );
+      },
+      function complete() {
+        
+      }
+    );
+
     //Atualiza a capa
     $.ajax({
       type: "POST",
@@ -291,6 +327,7 @@ $(document).ready(function () {
       }
     });
   });
+//------------------------------------------------------------------------------------------- FIM UPDATE FOTOS CAPAS
 
   //Chamando Funções externas ao Jquery
   vagas_total();
@@ -384,7 +421,7 @@ function vagas_tipo(sexo, disparo) {
     dataType: "JSON",
     success: function (data) {
       //Como estamos usando 1 ajax pra receber a mesma função 4 vezes com parametros diferente, fiz uso de testes para identificar a ordem de execução
-      
+
       if (data[1]["quarto"] == "Duplo") {
         $.each(data, function (contador) {
           //Isso aqui é basicamente um IF em linha, assim economizo linhas
