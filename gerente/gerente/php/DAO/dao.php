@@ -76,8 +76,8 @@ class UsuarioDAO
             }
         }
 
-       $sql = "INSERT INTO moradores values (default, '$nome', '$sexo', '$tel', '$curso', '$mensalidade', '$quarto','$republica')";
-       $sql2 = "UPDATE republicas SET $tipo = $tipo - 1 WHERE id_republica = $republica";//Ao add morador ele subtrair o valor de 1 vaga 
+       $sql = "INSERT INTO moradores values (default, '$nome', '$sexo', '$tel', '$curso', '$mensalidade', '$quarto','$republica') SELECT * FROM republicas WHERE $tipo > 0";
+       $sql2 = "UPDATE republicas SET $tipo = $tipo - 1 WHERE id_republica = $republica AND $tipo > 0";//Ao add morador ele subtrair o valor de 1 vaga 
         
         $resultado =  mysqli_query($this->conexao->getCon(), $sql);    
         $resultado =  mysqli_query($this->conexao->getCon(), $sql2);//Eu não consigo usar o multiplo stamento 

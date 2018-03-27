@@ -3,16 +3,21 @@ include_once('./DAO/dao.php');
 include_once('./conexao.php');
 session_start();
 
-@$nome = $_POST['nome'];
-@$senha = $_POST['senha'];
-//Váriavel de Decisão
-@$status = isset($_POST['status'])? $_POST['status'] : $_GET['status'];//Se não houver um POST, status receberá um GET se houver
-//Captura valores do POST de Login
 
+//-------------------------------------------------------------------Váriavel de Decisão
+@$status = isset($_POST['status'])? $_POST['status'] : $_GET['status'];//Captura tanto por GET quanto por POST
+//---------------------------------------------------------------FIM Váriavel de Decisão
+
+//Captura valores do POST de Login
 //Login do ADM
-if($status == '1'){
+if($status == '1'){    
+    @$nome = $_POST['nome'];
+    @$senha = $_POST['senha'];
+
+    @$hash = crypt($senha,'republica');
+    
     $usuarios_index = new UsuarioDAO();
-    $buscar = $usuarios_index->login($nome, $senha);
+    $buscar = $usuarios_index->login($nome, $hash);//Envia o nome e senha cryptografada do usuário.
     if($buscar){        
         $_SESSION['status'] = true;
         $_SESSION['resultado'] = mysqli_fetch_array($buscar, MYSQL_ASSOC);//Esse Array captura todos os valores no BD            
