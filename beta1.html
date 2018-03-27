@@ -19,7 +19,12 @@
 	<meta name="og:url" content="http://www.republicadoclaudinho.com">
 	<meta name="og:site_name" content="Republica do Claudinho">
 	<meta name="og:locale" content="pt_BR">
-	<meta property="fb:app_id" content="294161640996451">
+
+
+	<meta property="fb:app_id" content="{294161640996451}" />
+
+
+
 	<meta name="og:type" content="website">
 	<!-- Icones -->
 	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -66,7 +71,7 @@
 </head>
 
 <body>
-	<!-- SDK Javascript do Facebook !-->
+	<!-- Script do Facebook !-->
 	<div id="fb-root"></div>
 	<script>
 		(function(d, s, id) {
@@ -79,30 +84,18 @@
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
 
-	<!------------------------------------!-->
-	<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.10&appId=294161640996451";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
-	<!----------------Fim do SKD--------------------!-->
-
-
-	<body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4" onload="listar_fotos_capa('body',1);//tela Principal">
+	<body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4">
 		<!-- Navigation -->
 		<nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
-			<div class="container-fluid">
+			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header page-scroll">
 
-					<div class="fb-like" data-href="https://www.facebook.com/republicadoclaudinho/" data-layout="standard" data-action="recommend" data-size="small" data-show-faces="true" data-share="true"></div>
+					<div class="fb-like" data-share="true" data-width="350" data-show-faces="true">
+					</div>
 				</div>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
 
 			</div>
 			<!-- /.container-fluid -->
@@ -114,55 +107,9 @@
 				<div class="intro-text">
 					<div class="intro-lead-in">Olá! / ¡Hola! </div>
 					<div class="intro-heading">Conheça as Repúblicas do Claudinho!</div>
-					<div class="row">
-						<div class="container">
-							<div class="col-sm-4">
-							<div class="col-md-12 text-center">
-                                                <div class="nome_republica" onclick="location.href='./centro.html';">
-                                                    <div class="panel-heading">
-													<div style="font-size:11em; color:#72a8ff">
-														<i class="fa fa-fort-awesome castelo"></i>
-													</div>                                                        
-                                                        <h3>República do Centro</h3>
-                                                    </div>                                   
-														
-                                                        <a class="btn btn-lg btn-block btn-success">Conhecer</a>
-                                                    
-                                                </div>
-                                            </div>
-							</div>
-							<div class="col-sm-4">
-							<div class="col-md-12 text-center">
-                                                <div class="nome_republica" onclick="location.href='./inga.html';">
-                                                    <div class="panel-heading">
-													<div style="font-size:11em; color:#feea56">
-														<i class="fa fa-fort-awesome castelo"></i>
-													</div>                                                        
-                                                        <h3>República do <br>Ingá</h3>
-                                                    </div>                                   
-                                                    
-													<a class="btn btn-lg btn-block btn-success">Conhecer</a>
-                                                    
-                                                </div>
-                                            </div>
-							</div>
-							<div class="col-sm-4">
-							<div class="col-md-12 text-center">
-                                                <div class="nome_republica" onclick="location.href='./vermelha.html';">
-                                                    <div class="panel-heading">
-													<div style="font-size:11em; color:#9e0c22">
-														<i class="fa fa-fort-awesome castelo"></i>
-													</div>                                                        
-                                                        <h3>República da Praia Vermelha</h3>
-                                                    </div>                                   
-                                                   
-                                                        <a class="btn btn-lg btn-block btn-success">Conhecer</a>
-                                                    
-                                                </div>
-                                            </div>
-							</div>
-						</div>
-					</div>
+					<a href="/inga.html" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-map-marker"></span> República Ingá</a>
+                    <a href="/vermelha.html" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-map-marker"></span> República da Praia Vermelha (Em Breve)</a>
+					<a href="./centro.html" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-map-marker"></span> República Centro</a>
 				</div>
 			</div>
 		</header>
@@ -239,12 +186,15 @@
 			<!-- Aqui incluimos o comentários do facebook !-->
 			<li class="timeline-inverted">
 				<div class="intro-lead-in">
-					<h2>Deixe seu Comentário Aqui ;)</h2>
+					<h2>Nossas Repúblicas nas Redes Sociais</h2>
 				</div>
-				<div class="fb-comments" data-href="http://www.republicadoclaudinho.com" data-width="100%" data-numposts="10" data-colorscheme="dark"></div>
+				<div class="fb-comments" data-href="http://republicadoclaudinho.com" data-numposts="5"></div>
 			</li>
 
 		</section>
+
+		<!-- Facebook Comments Box -->
+		<div class="fb-comments" data-href="http://republicadoclaudinho.com/beta1.html" data-width="100%" data-numposts="100" data-order-by="reverse_time"></div>
 
 		<!-- jQuery Version 1.11.0 -->
 		<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/jquery-1.11.0.js"></script>
