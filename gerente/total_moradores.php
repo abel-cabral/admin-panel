@@ -81,29 +81,29 @@
                                     <div class="container">
                                         <div class="row">
                                             <!-- item -->                                                                                     
-                                            <div class="col-md-4 text-center">
+                                            <div class="col-lg-4 text-center text-success">
                                                 <div class="panel panel-danger panel-pricing">
                                                     <div class="panel-heading">
                                                         <i class="fa fa-fort-awesome"></i>
-                                                        <h3>República do Centro</h3>
+                                                        <h3>República Centro</h3>
                                                     </div>
                                                     <div class="panel-body text-center">                                                    
-                                                        <p><strong id='rvagas1'>Carregando</strong></p>                                                    
+                                                        <p><strong id='rvagas1'>Carregado</strong></p>                                                    
                                                     </div>
                                                     <ul class="list-group text-justify">
                                                         
                                                     
-                                                        <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Máxima: <strong id='r1total'>0</strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-graduation-cap"></i> Número de Moradores Atuais: <strong id='r1'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Duplo: <strong id='r1M2'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Duplo: <strong id='r1F2'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Quádruplo: <strong id='r1M4'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Quádruplo: <strong id='r1F4'>0</strong></li>
+                                                        <li class="list-group-item text-danger"><i class="fa fa-fort-awesome"></i> Vagas Restantes: <strong id='r1total'>0</strong > Vagas</li>
+                                                        <li class="list-group-item text-primary"><i class="fa fa-graduation-cap"></i> Total de Residentes: <strong id='r1'>0</strong> Vagas Ocupadas</li>
+                                                        <li class="list-group-item"> Residente em Masculino Duplo: <strong id='r1M2'>0</strong></li>
+                                                        <li class="list-group-item"> Residente em Feminino Duplo: <strong id='r1F2'>0</strong></li>
+                                                        <li class="list-group-item"> Residente em Masculino Quádruplo: <strong id='r1M4'>0</strong></li>
+                                                        <li class="list-group-item"> Residente em Feminino Quádruplo: <strong id='r1F4'>0</strong></li>
 
                                                         
                                                     </ul>                                                    
                                                     <div class="panel-footer" data-toggle="modal" data-target="#modal-republica">
-                                                        <a class="btn btn-lg btn-block btn-danger nome_republica" href="#" data-republica="1">Alterar Dados</a>
+                                                        <a class="btn btn-lg btn-block btn-success nome_republica" href="#" data-republica="1">Alterar Dados</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,22 +112,22 @@
 
 
                                             <!-- item -->
-                                            <div class="col-md-4 text-center">
+                                            <div class="col-lg-4 text-center text-warning">
                                                 <div class="panel panel-warning panel-pricing">
                                                     <div class="panel-heading">
                                                         <i class="fa fa-fort-awesome"></i>
-                                                        <h3>República do Ingá</h3>
+                                                        <h3>República Ingá</h3>
                                                     </div>
                                                     <div class="panel-body text-center">
-                                                        <p><strong id='rvagas2'>Carregando</strong></p>
+                                                        <p><strong id='rvagas2' class="">Carregado</strong></p>
                                                     </div>
                                                     <ul class="list-group text-justify">
-                                                    <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Máxima: <strong id='r2total'>0</strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-graduation-cap"></i> Número de Moradores Atuais: <strong id='r2'>0</strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Duplo: <strong id='r2M2'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Duplo: <strong id='r2F2'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Quádruplo: <strong id='r2M4'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Quádruplo: <strong id='r2F4'>0</strong></li>
+                                                    <li class="list-group-item text-danger"><i class="fa fa-fort-awesome"></i> Vagas Restantes: <strong id='r2total'>0</strong > Vagas</li>
+                                                        <li class="list-group-item text-primary"><i class="fa fa-graduation-cap"></i> Total de Residentes: <strong id='r2'>0</strong > Vagas Ocupadas</li>
+                                                        <li class="list-group-item"> Residente em Masculino Duplo: <strong id='r2M2'>0</strong></li>
+                                                        <li class="list-group-item"> Residente em Feminino Duplo: <strong id='r2F2'>0</strong></li>
+                                                        <li class="list-group-item"> Residente em Masculino Quádruplo: <strong id='r2M4'>0</strong></li>
+                                                        <li class="list-group-item"> Residente em Feminino Quádruplo: <strong id='r2F4'>0</strong></li>
                                                     </ul>
                                                     <div class="panel-footer" data-toggle="modal" data-target="#modal-republica">
                                                         <a class="btn btn-lg btn-block btn-warning nome_republica" href="#" data-republica="2">Alterar Dados</a>
@@ -137,25 +137,25 @@
                                             <!-- /item -->
 
                                             <!-- item -->
-                                            <div class="col-md-4 text-center">
+                                            <div class="col-lg-4 text-center text-danger">
                                                 <div class="panel panel-success panel-pricing">
                                                     <div class="panel-heading">
                                                         <i class="fa fa-fort-awesome"></i>
                                                         <h3>Praia Vermelha</h3>
                                                     </div>
                                                     <div class="panel-body text-center">
-                                                        <p><strong id='rvagas3'>Carregando</strong></p>
+                                                        <p><strong id='rvagas3'>Carregado</strong></p>
                                                     </div>
                                                     <ul class="list-group text-justify">
-                                                        <li class="list-group-item"><i class="fa fa-fort-awesome"></i> Capacidade Máxima: <strong id='r3total'>0</strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-graduation-cap"></i> Número de Moradores Atuais: <strong id='r3'></strong ></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Duplo: <strong id='r3M2'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Duplo: <strong id='r3F2'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-mars-double"></i> Residente de Quarto Masculino Quádruplo: <strong id='r3M4'>0</strong></li>
-                                                        <li class="list-group-item"><i class="fa fa-venus-double"></i> Residente de Quarto Feminino Quádruplo: <strong id='r3F4'>0</strong></li>
+                                                        <li class="list-group-item text-danger"><i class="fa fa-fort-awesome"></i> Vagas Restantes: <strong id='r3total'>0</strong > Vagas</li>
+                                                        <li class="list-group-item text-primary"><i class="fa fa-graduation-cap"></i> Total de Residentes: <strong id='r3'></strong > Vagas Ocupadas</li>
+                                                        <li class="list-group-item"> Residente em Masculino Duplo: <strong id='r3M2'>0</strong></li>
+                                                        <li class="list-group-item"> Residente em Feminino Duplo: <strong id='r3F2'>0</strong></li>
+                                                        <li class="list-group-item"> Residente em Masculino Quádruplo: <strong id='r3M4'>0</strong></li>
+                                                        <li class="list-group-item"> Residente em Feminino Quádruplo: <strong id='r3F4'>0</strong></li>
                                                     </ul>
                                                     <div class="panel-footer" data-toggle="modal" data-target="#modal-republica">
-                                                        <a class="btn btn-lg btn-block btn-success nome_republica" href="#" data-republica="3">Alterar Dados</a>
+                                                        <a class="btn btn-lg btn-block btn-danger nome_republica" href="#" data-republica="3">Alterar Dados</a>
                                                     </div>
                                                 </div>
                                             </div>

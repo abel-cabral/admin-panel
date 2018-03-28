@@ -9,6 +9,7 @@ session_start();
 @$status = isset($_POST['status'])? $_POST['status'] : $_GET['status'];//Se não houver um POST, status receberá um GET se houver
 //Captura valores do POST de Login
 
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Login do ADM
 if($status == '1'){
     $usuarios_index = new UsuarioDAO();
@@ -18,7 +19,7 @@ if($status == '1'){
         $_SESSION['resultado'] = mysqli_fetch_array($buscar, MYSQL_ASSOC);//Esse Array captura todos os valores no BD            
     }
 }
-
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Deslogar ADM
 elseif($status == '2'){  
           
@@ -31,8 +32,11 @@ elseif($status == '2'){
 elseif($status == '3'){
     $usuarios_index = new UsuarioDAO();
     $buscar = $usuarios_index->cadastro(transformar($_POST['nome']), $_POST['sexo'], $_POST['tel'], transformar($_POST['curso']), $_POST['mensalidade'], $_POST['quarto']);     
+    
+   //Como não há um array envolvido, podemos devolver só com um echo da variavel;   
+   echo $buscar;
 }
-
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Listar Todos Moradores
 elseif($status == '4'){
     $usuarios_index = new UsuarioDAO();
@@ -63,13 +67,13 @@ elseif($status == '4'){
     //json_encode — Retorna a representação JSON de um valor
     echo json_encode($resposta);  
 }
-
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Deletar Morador
 elseif($status == '5'){
     $usuarios_index = new UsuarioDAO();
     $buscar = $usuarios_index->deletar_morador($_POST['id_morador'], $_POST['id_republica'], $_POST['sexo'], $_POST['quarto']);    
 }
-
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Contar Vagas
 elseif($status == '6'){    
     $usuarios_index = new UsuarioDAO();//total de republicas, 
@@ -105,7 +109,7 @@ elseif($status == '6'){
     }
     echo json_encode($resposta);
 }
-
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Contar Vagas Duplas
 elseif($status == '7'){
    
@@ -134,6 +138,7 @@ elseif($status == '7'){
                     'nome_republica' => $linha['nome_republica'],                                
                     'valor_quarto' => $linha['valor_quarto'],
                     'dupla' => $linha['dupla'],
+                    'total' => $linha['total'],//Por aqui pego o atual numero de cadastrados e somo ao geral
                     'id_republica' => $linha['id_republica']                  
                 );        
             }
@@ -141,6 +146,7 @@ elseif($status == '7'){
         }        
        echo json_encode($resposta); //Resposta AJAX
 }
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Conta vagas Quadruplas
 elseif($status == '8'){
     
@@ -169,14 +175,15 @@ elseif($status == '8'){
                     'nome_republica' => $linha['nome_republica'],                                
                     'valor_quarto' => $linha['valor_quarto'],
                     'quad' => $linha['quad'],
+                    'total' => $linha['total'],//Por aqui pego o atual numero de cadastrados e somo ao geral
                     'id_republica' => $linha['id_republica']                
                 );        
             }
         }
         }                
-        echo json_encode($resposta);//Resposta AJAX         
+        echo json_encode($resposta);//Resposta AJAX            
 }
-//-------------------------------------------------------------------
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //QUANTIDADE DE VAGAS OFERECIDAS + VALOR DE CADA QUARTO POR REPUBLICA
 elseif($status == '9'){
     $usuarios_index = new UsuarioDAO();
@@ -185,19 +192,22 @@ elseif($status == '9'){
     $qM=$_POST['qM'] - $_POST['qm'];                   $qF=$_POST['qF'] - $_POST['qf']; 
     $aprovacao = true;
 
-    if($dM <= 0){//Testa se o valor da vaga é maior que o das vagas ocupadas, se for ele grava no banco.
+    if($dM < 0){//Testa se o valor da vaga é maior que o das vagas ocupadas, se for ele grava no banco.
         $aprovacao = false;
-    }if($dF <= 0){
+    }if($dF < 0){
         $aprovacao = false;
-    }if($qM <= 0){
+    }if($qM < 0){
         $aprovacao = false;
-    }if($qF <= 0){
+    }if($qF < 0){
         $aprovacao = false;
     }if($aprovacao == true){
-        $buscar = $usuarios_index->numero_vagas($_POST['id_republica'], $dM, $dF, $qM, $qF);//contar na tabela, republica, sexo, tipo de quarto        
+        $buscar = $usuarios_index->numero_vagas($_POST['id_republica'], $dM, $dF, $qM, $qF);
+        echo $buscar;
     }
+    //SQL que atualiza o valor da Republica independente se as vagas foram ou nao aceitas
     $buscar = $usuarios_index->atualiza_mensalidade($_POST['mendupla'], $_POST['menquad'], $_POST['id_republica']);
 }
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Procentagem de Ocupação
 elseif($status == '10'){
     $usuarios_index = new UsuarioDAO();
@@ -209,11 +219,13 @@ elseif($status == '10'){
     }
     echo json_encode($resposta);//Resposta AJAX 
 }
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Envia o link da imagem upada no firebase para o sql
 elseif($status == '11'){
     $usuarios_index = new UsuarioDAO();
     $buscar = $usuarios_index->imagem_link($_POST['link'],$_POST['descricao'], $_POST['id_republica']); 
 }
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Pega uma lista de Fotos
 elseif($status == '12'){
     $usuarios_index = new UsuarioDAO();
@@ -237,20 +249,22 @@ elseif($status == '12'){
     }
     
 }
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Deletar Foto
 elseif($status == '13'){
     $usuarios_index = new UsuarioDAO();
     $buscar = $usuarios_index->imagem_delete($_POST['id_imagem']);
-
     echo true;
         
 }
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Atualizar Capas
 elseif($status == '14'){
     $usuarios_index = new UsuarioDAO();
     $buscar = $usuarios_index->atualizar_capa($_POST['link'], $_POST['id_republica']);
     echo true;        
 }
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Vê o restante de vagas disponivel no banco de dados e informa pro visitante
 elseif($status == '15'){
     $usuarios_index = new UsuarioDAO();
@@ -276,7 +290,7 @@ elseif($status == '15'){
     }
     
 }
-
+//-------------------------------------------------------------------//-------------------------------------------------------------------
 //Em Caso de Erro do Nº do Status
 else{    
     echo('Não recebi o Númerador do Status!');

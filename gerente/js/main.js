@@ -1,5 +1,5 @@
 //Lista Varoiaveis Globais
-var file, nome_img;
+var file, nome_img, vagas_ocupadas;
 $(document).ready(function () {
 
   //Logar
@@ -33,7 +33,7 @@ $(document).ready(function () {
     });
   });
 
-  //Cadastrar Moradores
+  //-----------------------------------------------------------------------------------------------CADASTRO DE MORADORES
   $("#form_morador").submit(function (e) {
     e.preventDefault();
     $.ajax({
@@ -41,11 +41,25 @@ $(document).ready(function () {
       url: "./php/funcoes.php",
       data: $("#form_morador").serialize(), //Captura todos os valores no FORM e faz um OBJ.
       cache: false,
-      success: function () {
-        location.reload();
+      success: function (data) {
+        //Agora testamos o retono e decidimos
+        if (data == 'sucesso') {
+          swal("Sucesso!", 'Novo Morador Cadastrado.', "success");
+        } else {
+          swal("Erro!", 'Limite deste tipo de vaga atingido, exclua um morador ou aumente o número de vagas.', "error");
+        }
+
+        $(".swal-button--confirm").on("click", function () { //Só após clicar em OK que a página recarrega          
+          location.reload();
+        });
+      },
+      //Mensagem de error Relacionada a consulta/requisição
+      error: function () {
+        alert('Erro ao consultar o banco de dados');
       }
     });
   });
+  //-----------------------------------------------------------------------------------------------FIM DO CADASTRO DE MORADORES
 
   //Deletar Morador
   $(document).on("click", ".id_morador", function () {
@@ -94,7 +108,7 @@ $(document).ready(function () {
     df = parseInt($('#r' + id + 'F2').text());
     qm = parseInt($('#r' + id + 'M4').text());
     qf = parseInt($('#r' + id + 'F4').text());
-    total = dm + df + qm + qf; //Em suma eu passo pro ajax as vagas que já tenho ocupadas, eu sei é meio burro isso
+
 
     //Chama a função que faz a atualização
     $("#form_republica_vaga").submit(function (e) {
@@ -114,27 +128,21 @@ $(document).ready(function () {
             type: "POST",
             url: "./php/funcoes.php",
             data: $("#form_republica_vaga").serialize() +
-              "&status=9&id_republica=" + id+"&dm="+dm+"&df="+df+"&qm="+qm+"&qf="+qf, //Captura todos os valores no FORM e faz um OBJ.
+              "&status=9&id_republica=" + id + "&dm=" + dm + "&df=" + df + "&qm=" + qm + "&qf=" + qf, //Captura todos os valores no FORM e faz um OBJ.
             cache: false,
             success: function (data) {
-              swal("Suas informações foram salvar com sucesso.", {
-                icon: "success"
-              });
+              if (data[0] == 's') {                
+                swal("Sucesso!", 'Quantidade de vagas e preço atualizados.', "success");
+              } else {
+                swal("Atenção!", 'PREÇO ATUALIZADO. Mas houve erro ao atualizar suas vagas, é necessário oferecer mais vagas do que o nº de residentes atual.', "warning");
+              }
               $(".swal-button--confirm").on("click", function () {
                 location.reload();
-              });
-            },
-            error:function(data){
-              alert('Você não pode oferecer menos vagas que a quantidade atual de moradores.');
+              })
             }
           });
-        } else {
-          //se não só exibe a mensagem
-          swal("Não alteramos os dados.");
-          $("#form_republica_vaga").trigger("reset"); //Isso Reseta nossos campos do formulario
-        }
-      });
-      $("#modal-republica").modal("toggle"); //E caso o modal bootstrap nao feche isso o força
+        } 
+      });      
     });
   });
   //------------------------------------------------------------------------------------------- FIM DA ATUALIZAÇÃO DE VAGAS OFERECIDAS
@@ -202,8 +210,7 @@ $(document).ready(function () {
     ($.fn.gravar_imagem = function (e, teste_sql) {
 
       //Variavel recebe nome aleatório
-      nome_img = guid() + file.name;
-      console.log(nome_img)
+      nome_img = guid() + file.name;      
 
       //Create a Storage ref
       var storageRef = firebase.storage().ref("r2/" + nome_img);
@@ -433,13 +440,15 @@ function vagas_tipo(sexo, disparo) {
     success: function (data) {
       //Como estamos usando 1 ajax pra receber a mesma função 4 vezes com parametros diferente, fiz uso de testes para identificar a ordem de execução
 
-      if (data[1]["quarto"] == "Duplo") {
+      //Vagas Duplas
+      if (data[1]["quarto"] == "Duplo") {   
         $.each(data, function (contador) {
           //Isso aqui é basicamente um IF em linha, assim economizo linhas
           data[contador]["sexo"] == "M" ?
             $("#r" + contador + "M2").html(data[contador]["dupla"]) :
             $("#r" + contador + "F2").html(data[contador]["dupla"]);
-        });
+        });      
+      //Vagas Quadruplas  
       } else {
         $.each(data, function (contador) {
           data[contador]["sexo"] == "M" ?
@@ -464,21 +473,11 @@ function vagas_porcento(lancar) {
     cache: false,
     dataType: "JSON",
     success: function (data) {
-      $.each(data, function (contador) {
-        //Aqui escreve o total de vagas da republica
-        $("#r" + lancar + "total").html(data["soma"]);
-
-        //Capturo o total de pessoas morando e tiro % com base no total
-        var valor1 =
-          parseInt($("#r" + lancar + "M2").text()) +
-          parseInt($("#r" + lancar + "F2").text()) +
-          parseInt($("#r" + lancar + "M4").text()) +
-          parseInt($("#r" + lancar + "F4").text());
-        var valor2 = valor1 / parseInt(data["soma"]) * 100;
-
-        //Manda nossa Porcentagem de ocupação pro html
-        $("#rvagas" + lancar).html(parseInt(valor2) + "% Ocupada");
-      });
+          
+        $("#r" + lancar + "total").html(data["soma"]);//Lança o Valor das vagas ainda restantes no banco de dados.
+             
+        $("#rvagas" + lancar).html(parseInt(solucao_2) + "% Ocupada");
+      
     }
   });
 }
@@ -527,4 +526,3 @@ function guid() {
   return s4() + s4();
 }
 
-//

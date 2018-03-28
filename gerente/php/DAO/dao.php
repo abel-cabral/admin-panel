@@ -48,7 +48,7 @@ class UsuarioDAO
         }
 
         //DESCUBRO O SEXO E O QUARTO
-        if ($sexo == 'F')
+        if ($sexo == 'F' || $sexo == 'f')
         { //OK
             if ($quarto % 2 !== 0)
             { //Se o Quarto for Impar, logo ele é QUADRUPLO
@@ -75,14 +75,20 @@ class UsuarioDAO
                 $tipo = 'quadruplo_masculino';            
             }
         }
-
-       $sql = "INSERT INTO moradores values (default, '$nome', '$sexo', '$tel', '$curso', '$mensalidade', '$quarto','$republica')";
-       $sql2 = "UPDATE republicas SET $tipo = $tipo - 1 WHERE id_republica = $republica";//Ao add morador ele subtrair o valor de 1 vaga 
-        
-        $resultado =  mysqli_query($this->conexao->getCon(), $sql);    
-        $resultado =  mysqli_query($this->conexao->getCon(), $sql2);//Eu não consigo usar o multiplo stamento 
+             
+       $sql = "SELECT $tipo FROM republicas WHERE id_republica = $republica;";
+       $resultado =  mysqli_query($this->conexao->getCon(), $sql);//Permite rodar mais de uma consulta;   
+       $linha = mysqli_fetch_array($resultado, MYSQL_ASSOC);//Recebe o valor solicitado                  
+         
+        if($linha[$tipo] > '0'){
+            $sql = "UPDATE republicas SET $tipo = $tipo - 1 WHERE id_republica = $republica;";//Ao add morador ele subtrair o valor de 1 vaga        
+            $sql .= "INSERT INTO moradores values (default, '$nome', '$sexo', '$tel', '$curso', '$mensalidade', '$quarto','$republica');";
+            $resultado =  mysqli_multi_query($this->conexao->getCon(), $sql);                   
+            return 'sucesso';            
+        }else{
+            return 'erro';
+        }
     }
-        
 
     //Lista de Todos os Moradores
     public function consultarTodosMoradores()
@@ -108,7 +114,7 @@ class UsuarioDAO
     public function deletar_morador($id_morador, $id_republica, $sexo, $quarto)
     {
         //DESCUBRO O SEXO E O QUARTO
-        if ($sexo == 'F')
+        if ($sexo == 'F' || $sexo == 'f' )
         { //OK
             if ($quarto == 4)
             { //Se o Quarto for Impar, logo ele é QUADRUPLO                
@@ -133,13 +139,11 @@ class UsuarioDAO
             }
         }
 
-        $sql = "UPDATE moradores SET moradia = NULL WHERE id_morador = $id_morador;";
-        $sql2 = "UPDATE republicas SET $tipo = $tipo + 1 WHERE id_republica = $id_republica";//Ao Deletar devolve +1 em vagas
-       
-        $resultado =  mysqli_query($this->conexao->getCon(), $sql);    
-        $resultado =  mysqli_query($this->conexao->getCon(), $sql2);//Eu não consigo usar o multiplo stamento 
-       
-            
+        
+        $sql = "UPDATE republicas SET $tipo = ($tipo + 1) WHERE id_republica = $id_republica;";//Ao Deletar devolve +1 em vagas
+        $sql .= "UPDATE moradores SET moradia = NULL WHERE id_morador = $id_morador;";
+
+        $resultado =  mysqli_multi_query($this->conexao->getCon(), $sql);    
     }
 
     //Atualizar Morador
@@ -184,7 +188,7 @@ class UsuarioDAO
             $q = '1';
         }
 
-        $sql = "select count(m.moradia) as dupla, m.*, q.*, r.* from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = '$n' and sexo='$sexo' and quarto= '$q' and m.moradia is not null";
+        $sql = "select count(m.moradia) as dupla, m.*, q.*, r.*, duplo_masculino + duplo_feminino as total from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = '$n' and sexo='$sexo' and quarto= '$q' and m.moradia is not null;";
         $resultado = mysqli_query($this
             ->conexao
             ->getCon() , $sql);
@@ -213,7 +217,7 @@ class UsuarioDAO
             $q = '3';
         }
 
-        $sql = "select count(m.moradia) as quad, m.*, q.*, r.* from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = $n and sexo='$sexo' and quarto= '$q' ";
+        $sql = "select count(m.moradia) as quad, m.*, q.*, r.*, quadruplo_masculino + quadruplo_feminino as total from moradores as m join quartos as q on m.quarto = q.id_quarto join republicas as r on m.moradia = r.id_republica where m.moradia = $n and sexo='$sexo' and quarto= '$q' and m.moradia is not null;";
         $resultado = mysqli_query($this
             ->conexao
             ->getCon() , $sql);
@@ -237,15 +241,7 @@ class UsuarioDAO
             ->conexao
             ->getCon() , $sql);
 
-        //Esse paramentro 'mysqli_num_rows' ve quantos resultados obtivemos
-        if (mysqli_num_rows($resultado) > 0)
-        { //Aqui comparamos se é maior que 0
-            return $resultado;
-        }
-        else
-        { //Se nao achar nada a função acaba.
-            return false;
-        }
+        return $resultado = 'sucesso';
     }
 
     public function total_porcentagem($n)

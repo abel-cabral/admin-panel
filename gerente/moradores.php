@@ -216,8 +216,8 @@
 																	</div>
 																</div>
 																<h3>
-																	<i class="fa fa-user"></i> Total de Moradores Cadastrados ->
-																	<span id='total_de_moradores'>Calculando...</span>
+																	<i class="fa fa-user"></i> Total de Moradores Cadastrados->
+																	<span id='total_de_moradores'>0</span>
 																</h3>
 															</div>
 															<!-- end card-header -->
