@@ -108,11 +108,13 @@ function vagas_ocupadas(republica) {
       });
 
       //Caso o valor seja maior que 0 dou true a variavel se não eu coloco false
-      var dm = ((vagas[0]['dm'] > 0) ? $('.vm1').show() : $('.vm2').show());
+      var dm = ((vagas[0]['dm'] > 0) ? $('.vm1').show() : $('.vm2').show());//OK
       var df = ((vagas[0]['df'] > 0) ? $('.vm3').show() : $('.vm4').show());
       var qm = ((vagas[0]['qm'] > 0) ? $('.vm5').show() : $('.vm6').show());
       var qf = ((vagas[0]['qf'] > 0) ? $('.vm7').show() : $('.vm8').show());      
       var republica = vagas[0]['id_republica'];//Escreve o nome da republica
+      
+      //Saída de Mensalidade
       $('.vm9').html(vagas[0]['vd']); 
       $('.vm10').html(vagas[0]['vq']);
     }
