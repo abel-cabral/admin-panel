@@ -32,9 +32,6 @@ function listar_fotos_capa(onde, n) {
     dataType: "JSON", //OBS só usar se o php estiver devolvendo um Json ex: echo json_encode();  
     success: function (data) {
       $(onde).css('background-image', "url('" + data[n]['link'] + "'");
-    },
-    error: function () {
-      alert("Não há fotos, ou há um problema com o Banco de Dados!", "Consulte o Desenvolvedor!", "error"); //Um aviso de erro  
     }
   });
 }
