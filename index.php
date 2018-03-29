@@ -157,7 +157,7 @@
 											<div style="font-size:11em; color:#9e0c22">
 												<i class="fa fa-fort-awesome castelo"></i>
 											</div>
-											<h3>República da <br>Praia Vermelha</br></h3>
+											<h3>República <br>Praia Vermelha</br></h3>
 										</div>
 
 										<a class="btn btn-lg btn-block btn-success">Conhecer</a>

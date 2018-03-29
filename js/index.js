@@ -31,7 +31,7 @@ function listar_fotos_capa(onde, n) {
     cache: false,
     dataType: "JSON", //OBS só usar se o php estiver devolvendo um Json ex: echo json_encode();  
     success: function (data) {
-      $(onde).css('background-image', "url('" + data[n]['link'] + "'");
+      $(onde).css('background-image', "url('" + data[n]['link'] + "' no-repeat center center fixed");
     }
   });
 }
