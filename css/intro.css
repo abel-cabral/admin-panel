@@ -922,12 +922,15 @@ iframe{
 
 body {
     webkit-tap-highlight-color: #1ee2e7;
-    background-image: url(../imagens/planodefundo/segundofundo.jpg);    
-			background-position: center center;
-			background-repeat:  no-repeat;
-			background-attachment: fixed;
-			background-size:  cover;
-			background-color: #999;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 ::-webkit-scrollbar { 

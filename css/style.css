@@ -8,6 +8,15 @@ body {
     width: 100%;
     overflow-x: hidden;
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 .text-muted {
@@ -263,38 +272,42 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    
 }
 
-.centro {    
+.centro {
     background-position: center center;
-    background-repeat: none;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    
 }
 
-.inga {    
+.inga {
     background-position: center center;
-    background-repeat: none;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    
 }
 
 .vermelha {
-    
     background-position: center center;
-    background-repeat: none;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    
 }
 
 header .intro-text {
@@ -521,86 +534,6 @@ section h3.section-subheading {
     color: #fff;
 }
 
-.i1 {
-    background: url(rodoviaria.JPG);
-    background-size: cover;
-}
-
-.i1:hover {
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(2);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
-    transition: all 200ms ease-in;
-    transform: scale(2);
-}
-
-.i2 {
-    background: url(../imagens/lugares/faculdade.jpg);
-    background-size: cover;
-}
-
-.i2:hover {
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(2);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
-    transition: all 200ms ease-in;
-    transform: scale(2);
-}
-
-.i3 {
-    background: url(../imagens/lugares/shopping.jpg);
-    background-size: cover;
-}
-
-.i3:hover {
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(2);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
-    transition: all 200ms ease-in;
-    transform: scale(2);
-}
-
-.i4 {
-    background: url(../imagens/lugares/ciclovia.jpg);
-    background-size: cover;
-}
-
-.i4:hover {
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(2);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
-    transition: all 200ms ease-in;
-    transform: scale(2);
-}
-
-.i5 {
-    background: url(../imagens/lugares/museu.jpg);
-    background-size: cover;
-}
-
-.i5:hover {
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(2);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
-    transition: all 200ms ease-in;
-    transform: scale(2);
-}
-
 .timeline>li .timeline-image h4 {
     margin-top: 12px;
     font-size: 10px;
@@ -749,7 +682,6 @@ section h3.section-subheading {
     background-color: #222;
     background-image: url(../imagens/planodefundo/primeirofundo.jpg);
     background-size: cover;
-    
 }
 
 section#contact .section-heading {
@@ -822,7 +754,7 @@ footer span.copyright {
     text-transform: none;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 40px;
-    color: white;    
+    color: white;
 }
 
 footer ul.quicklinks {
@@ -955,7 +887,7 @@ img::-moz-selection {
     background: 0 0;
 }
 
-iframe{
+iframe {
     border-radius: 1%;
     width: 100%;
     height: 600px;
@@ -965,11 +897,12 @@ body {
     webkit-tap-highlight-color: #1ee2e7;
 }
 
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
 
 /*Botões Há vagas e não há*/
+
 .remover-span {
     display: none;
 }
@@ -977,4 +910,4 @@ body {
 .img-fluid {
     max-width: 100%;
     height: 280px;
-  }
+}
