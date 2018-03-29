@@ -6,9 +6,20 @@
 
 body {
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+<<<<<<< HEAD
     background-color: #999;
     -webkit-background-size: cover;
     -moz-background-size: cover;
+=======
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+>>>>>>> parent of 66e6e31... 3.3
     -o-background-size: cover;
     background-size: cover;
     height: 100%;
