@@ -45,7 +45,7 @@
 	<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel='stylesheet prefetch' href='http://startbootstrap.com/templates/agency/font-awesome-4.1.0/css/font-awesome.min.css'>
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="./css/index.css">
 
 	<!-- Script do Google !-->
 	<script>
@@ -96,6 +96,10 @@
 
 
 	<body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4" onload="listar_fotos_capa('body',1);//tela Principal">
+	<!--Aqui entra o fundo, como adtributo css-->
+	<div class="row bg"></div>
+
+	<div class="bg"></div>
 		<!-- Navigation -->
 		<nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
 			<div class="container-fluid">
@@ -158,11 +162,7 @@
 											<div style="font-size:11em; color:#9e0c22">
 												<i class="fa fa-fort-awesome castelo"></i>
 											</div>
-<<<<<<< HEAD
 											<h3>República <br>Praia Vermelha</br></h3>
-=======
-											<h3>República da Praia Vermelha</h3>
->>>>>>> parent of 66e6e31... 3.3
 										</div>
 
 										<a class="btn btn-lg btn-block btn-success">Conhecer</a>
