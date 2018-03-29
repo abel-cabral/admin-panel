@@ -331,7 +331,7 @@ $(document).ready(function () {
         link: nome_img,
         id_republica: id_capa
       },
-      cache: false,
+      cache: true,
       success: function () {
         swal("Capa do site atualizada.", {
           icon: "success"
@@ -491,7 +491,7 @@ function listar_fotos(id_republica) {
       status: "12",
       id_republica: id_republica
     },
-    cache: false,
+    cache: true,
     dataType: "JSON", //OBS só usar se o php estiver devolvendo um Json ex: echo json_encode();
     success: function (data) {
       $.each(data, function (contador) {
