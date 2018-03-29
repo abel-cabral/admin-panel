@@ -127,7 +127,7 @@
 											<div style="font-size:11em; color:#72a8ff">
 												<i class="fa fa-fort-awesome castelo"></i>
 											</div>
-											<h3>República do Centro</h3>
+											<h3>República do <br>Centro</br></h3>
 										</div>
 
 										<a class="btn btn-lg btn-block btn-success">Conhecer</a>
@@ -142,8 +142,7 @@
 											<div style="font-size:11em; color:#feea56">
 												<i class="fa fa-fort-awesome castelo"></i>
 											</div>
-											<h3>República do
-												<br>Ingá</h3>
+											<h3>República do <br>Ingá</br></h3>
 										</div>
 
 										<a class="btn btn-lg btn-block btn-success">Conhecer</a>
@@ -158,7 +157,7 @@
 											<div style="font-size:11em; color:#9e0c22">
 												<i class="fa fa-fort-awesome castelo"></i>
 											</div>
-											<h3>República da Praia Vermelha</h3>
+											<h3>República da <br>Praia Vermelha</br></h3>
 										</div>
 
 										<a class="btn btn-lg btn-block btn-success">Conhecer</a>
@@ -188,7 +187,6 @@
 					<section id="services">
 						<div class="container">
 							<div class="row">
-
 								<div class="col-sm-6">
 									<span class="fa-stack fa-4x">
 										<i class="fa fa-circle fa-stack-2x text-primary"></i>
@@ -206,15 +204,16 @@
 									<h4 class="service-heading">Ambiente</h4>
 									<p class="text-muted"> Oferecemos repúblicas com área de laser e espaço de convívio.</p>
 								</div>
-
+							</div class="row">
+							<div class="row">
 								<div class="col-sm-6">
 									<span class="fa-stack fa-4x">
 										<i class="fa fa-circle fa-stack-2x text-primary"></i>
 										<i class="glyphicon glyphicon-bed"></i>
 									</span>
 									<h4 class="service-heading">Quartos</h4>
-									<p class="text-muted">Oferecemos quartos femininos e masculinos onde você poderá descansar confortávelmente. Todos equipados
-										com frigobar e armário individual com chave.</p>
+									<p class="text-muted">Oferecemos quartos femininos e masculinos onde você poderá descansar confortávelmente. Todos equipados com frigobar
+										e armário individual com chave.</p>
 								</div>
 
 								<div class="col-sm-6">
@@ -225,7 +224,8 @@
 									<h4 class="service-heading">Sala de Estudos</h4>
 									<p class="text-muted">Contamos com uma sala de estudos equipada com computador para que você possa se dedicar sem precisar sair de casa.</p>
 								</div>
-
+							</div class="row">
+							<div class="row">
 								<div class="col-sm-6">
 									<span class="fa-stack fa-4x">
 										<i class="fa fa-circle fa-stack-2x text-primary"></i>
@@ -243,7 +243,7 @@
 									<h4 class="service-heading">Limpeza</h4>
 									<p class="text-muted">Nossa limpeza é semanal. Ahh e contamos com um espaço para você lavar suas roupas quando quiser e sem custo algum.</p>
 								</div>
-							</div>
+							</div class="row">
 						</div>
 					</section>
 				</div>
@@ -252,7 +252,7 @@
 
 			<!-- Aqui incluimos o comentários do facebook !-->
 			<li class="timeline-inverted">
-				<div class="intro-lead-in">
+				<div>
 					<h2>Deixe seu Comentário Aqui ;)</h2>
 				</div>
 				<div class="fb-comments" data-href="http://www.republicadoclaudinho.com" data-width="100%" data-numposts="10" data-colorscheme="dark"></div>
