@@ -49,9 +49,9 @@
 
 	<!-- Script do Google !-->
 	<script>
-		(function(i, s, o, g, r, a, m) {
+		(function (i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function() {
+			i[r] = i[r] || function () {
 				(i[r].q = i[r].q || []).push(arguments)
 			}, i[r].l = 1 * new Date();
 			a = s.createElement(o),
@@ -69,7 +69,7 @@
 	<!-- SDK Javascript do Facebook !-->
 	<div id="fb-root"></div>
 	<script>
-		(function(d, s, id) {
+		(function (d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
 			if (d.getElementById(id)) return;
 			js = d.createElement(s);
@@ -81,13 +81,16 @@
 
 	<!------------------------------------!-->
 	<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.10&appId=294161640996451";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+	<script>
+		(function (d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.10&appId=294161640996451";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 
 	<!----------------Fim do SKD--------------------!-->
 
@@ -99,7 +102,8 @@
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header page-scroll">
 
-					<div class="fb-like" data-href="https://www.facebook.com/republicadoclaudinho/" data-layout="standard" data-action="recommend" data-size="small" data-show-faces="true" data-share="true"></div>
+					<div class="fb-like" data-href="https://www.facebook.com/republicadoclaudinho/" data-layout="standard" data-action="recommend"
+					    data-size="small" data-show-faces="true" data-share="true"></div>
 				</div>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -117,49 +121,50 @@
 					<div class="row">
 						<div class="container">
 							<div class="col-sm-4">
-							<div class="col-md-12 text-center">
-                                                <div class="nome_republica" onclick="location.href='./centro.html';">
-                                                    <div class="panel-heading">
-													<div style="font-size:11em; color:#72a8ff">
-														<i class="fa fa-fort-awesome castelo"></i>
-													</div>                                                        
-                                                        <h3>República do Centro</h3>
-                                                    </div>                                   
-														
-                                                        <a class="btn btn-lg btn-block btn-success">Conhecer</a>
-                                                    
-                                                </div>
-                                            </div>
+								<div class="col-md-12 text-center">
+									<div class="nome_republica" onclick="location.href='./centro.html';">
+										<div class="panel-heading">
+											<div style="font-size:11em; color:#72a8ff">
+												<i class="fa fa-fort-awesome castelo"></i>
+											</div>
+											<h3>República do Centro</h3>
+										</div>
+
+										<a class="btn btn-lg btn-block btn-success">Conhecer</a>
+
+									</div>
+								</div>
 							</div>
 							<div class="col-sm-4">
-							<div class="col-md-12 text-center">
-                                                <div class="nome_republica" onclick="location.href='./inga.html';">
-                                                    <div class="panel-heading">
-													<div style="font-size:11em; color:#feea56">
-														<i class="fa fa-fort-awesome castelo"></i>
-													</div>                                                        
-                                                        <h3>República do <br>Ingá</h3>
-                                                    </div>                                   
-                                                    
-													<a class="btn btn-lg btn-block btn-success">Conhecer</a>
-                                                    
-                                                </div>
-                                            </div>
+								<div class="col-md-12 text-center">
+									<div class="nome_republica" onclick="location.href='./inga.html';">
+										<div class="panel-heading">
+											<div style="font-size:11em; color:#feea56">
+												<i class="fa fa-fort-awesome castelo"></i>
+											</div>
+											<h3>República do
+												<br>Ingá</h3>
+										</div>
+
+										<a class="btn btn-lg btn-block btn-success">Conhecer</a>
+
+									</div>
+								</div>
 							</div>
 							<div class="col-sm-4">
-							<div class="col-md-12 text-center">
-                                                <div class="nome_republica" onclick="location.href='./vermelha.html';">
-                                                    <div class="panel-heading">
-													<div style="font-size:11em; color:#9e0c22">
-														<i class="fa fa-fort-awesome castelo"></i>
-													</div>                                                        
-                                                        <h3>República da Praia Vermelha</h3>
-                                                    </div>                                   
-                                                   
-                                                        <a class="btn btn-lg btn-block btn-success">Conhecer</a>
-                                                    
-                                                </div>
-                                            </div>
+								<div class="col-md-12 text-center">
+									<div class="nome_republica" onclick="location.href='./vermelha.html';">
+										<div class="panel-heading">
+											<div style="font-size:11em; color:#9e0c22">
+												<i class="fa fa-fort-awesome castelo"></i>
+											</div>
+											<h3>República da Praia Vermelha</h3>
+										</div>
+
+										<a class="btn btn-lg btn-block btn-success">Conhecer</a>
+
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -171,67 +176,76 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<h2 class="section-heading">Um Pouco Sobre Niterói</h2>
-						<h3 class="section-subheading text-muted">A República do Cláudio fica localizada no coração de Niterói, bem próximo as principais faculdades, rodoviárias, shoppings e etc.</h3>
+						<h2 class="section-heading">Pontos em comum entre nossas repúblicas</h2>
+						<h3 class="section-subheading text-muted">
+							Nossas repúblicas estão espalhadas por pontos estratégicos da cidade, assim você facilmente chega a qualquer parte dela seja
+							a pé, de bike ou por ônibus.
+						</h3>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-12">
-						<ul class="timeline">
-							<li>
-								<div class="timeline-image i1">
+					<!-- Services Section -->
+					<section id="services">
+						<div class="container">
+							<div class="row text-center">
+
+								<div class="col-sm-6">
+									<span class="fa-stack fa-4x">
+										<i class="fa fa-circle fa-stack-2x text-primary"></i>
+										<i class="glyphicon glyphicon-signal"></i>
+									</span>
+									<h4 class="service-heading">Wi-Fi</h4>
+									<p class="text-muted">Disponibilizamos 240 MB de Intenet para você utilizar como quiser.</p>
 								</div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4>Rodoviárias</h4>
-										<h4 class="subheading">Interestadual e Intermunicipal</h4>
-									</div>
-									<div class="timeline-body">
-										<p class="text-muted"><b>A Rodoviária Interestadual abriga 60 linhas de ônibus - 36 intermunicipais e 24 interestaduais. Na rodoviária intermunicipal cerca de 400 mil pessoas passam diáriamente pelo local tornando-o um dos mais movimentados do estado do RIO DE JANEIRO. O terminal é instalado a cerca de 300 metros da Estaçao das BARCAS, ao lado do SHOPING (BAY MARKET).</b></p>
-									</div>
+
+								<div class="col-sm-6">
+									<span class="fa-stack fa-4x">
+										<i class="fa fa-circle fa-stack-2x text-primary"></i>
+										<i class="glyphicon glyphicon-home"></i>
+									</span>
+									<h4 class="service-heading">Ambiente</h4>
+									<p class="text-muted"> Oferecemos repúblicas com área de laser e espaço de convívio.</p>
 								</div>
-							</li>
-							<li class="timeline-inverted">
-								<div class="timeline-image i2">
+
+								<div class="col-sm-6">
+									<span class="fa-stack fa-4x">
+										<i class="fa fa-circle fa-stack-2x text-primary"></i>
+										<i class="glyphicon glyphicon-bed"></i>
+									</span>
+									<h4 class="service-heading">Quartos</h4>
+									<p class="text-muted">Oferecemos quartos femininos e masculinos onde você poderá descansar confortávelmente. Todos equipados
+										com frigobar e armário individual com chave.</p>
 								</div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4>Universidades</h4>
-										<h4 class="subheading">Públicas e Privadas</h4>
-									</div>
-									<div class="timeline-body">
-										<p class="text-muted">Juntas, as sete universidades de Niterói (UFF, Estácio, Universo, La Salle, Anhanguera, Maria Thereza e Candido Mendes) têm quase 70 mil alunos, a maioria da própria cidade. Um luxo, considerando que o município tem 487.562 moradores, segundo o IBGE. A quantidade de estudantes é maior que a do total de habitantes de cidades como Búzios e Rio Bonito.</p>
-									</div>
+
+								<div class="col-sm-6">
+									<span class="fa-stack fa-4x">
+										<i class="fa fa-circle fa-stack-2x text-primary"></i>
+										<i class="glyphicon glyphicon-education"></i>
+									</span>
+									<h4 class="service-heading">Sala de Estudos</h4>
+									<p class="text-muted">Contamos com uma sala de estudos equipada com computador para que você possa se dedicar sem precisar sair de casa.</p>
 								</div>
-							</li>
-							<li>
-								<div class="timeline-image i3">
+
+								<div class="col-sm-6">
+									<span class="fa-stack fa-4x">
+										<i class="fa fa-circle fa-stack-2x text-primary"></i>
+										<i class="glyphicon glyphicon-cutlery"></i>
+									</span>
+									<h4 class="service-heading">Cozinha</h4>
+									<p class="text-muted">A cozinha tem o fundamental para preparar refeições e para consumi-las. Portanto um bom fogão e forno são indispensáveis.</p>
 								</div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4>Shopping</h4>
-										<h4 class="subheading"></h4>
-									</div>
-									<div class="timeline-body">
-										<p class="text-muted">O município de Niterói possui atualmente cinco shopping centers, o Plaza Shopping Niterói, o Niterói Shopping, o Bay Market, o Itaipú Multicenter e o Camboinhas Mall.</p>
-									</div>
+
+								<div class="col-sm-6">
+									<span class="fa-stack fa-4x">
+										<i class="fa fa-circle fa-stack-2x text-primary"></i>
+										<i class="glyphicon glyphicon-tint"></i>
+									</span>
+									<h4 class="service-heading">Limpeza</h4>
+									<p class="text-muted">Nossa limpeza é semanal. Ahh e contamos com um espaço para você lavar suas roupas quando quiser e sem custo algum.</p>
 								</div>
-							</li>
-							<li class="timeline-inverted">
-								<div class="timeline-image i4">
-								</div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h4>Ciclovia</h4>
-										<h4 class="subheading"></h4>
-									</div>
-									<div class="timeline-body">
-										<p class="text-muted">Niterói já conta com cerca de 30 quilômetros de ciclovias e ciclofaixas. Entre as vias criadas, destaca-se o Circuito Universitário, com extensão de sete quilômetros. O circuito conecta alguns campi da UFF (Universidade Federal Fluminense) e museus como o Solar do Jambeiro, MAC e Janete Costa.</p>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
+							</div>
+						</div>
+					</section>
 				</div>
 			</div>
 			<hr>
