@@ -191,7 +191,7 @@
 					<!-- Services Section -->
 					<section id="services">
 						<div class="container">
-							<div class="row">
+							<div class="row text-center">
 
 								<div class="col-sm-6">
 									<span class="fa-stack fa-4x">
