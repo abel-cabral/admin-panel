@@ -130,7 +130,8 @@
 											<div style="font-size:11em; color:#72a8ff">
 												<i class="fa fa-fort-awesome castelo"></i>
 											</div>
-											<h3>República do Centro</h3>
+											<h3>República do
+												<br> Centro</h3>
 										</div>
 
 										<a class="btn btn-lg btn-block btn-success">Conhecer</a>
@@ -291,7 +292,7 @@
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 	<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
-	<script src="js/index.js"></script>
+	<script src="./js/index.js"></script>
 
 </body>
 

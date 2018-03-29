@@ -29,7 +29,7 @@ function listar_fotos_capa(onde, n) {
       'id_republica': '4'
     },
     cache: true,    
-    success: function (data) {
+    success: function (data) {      
       $(onde).css('background-image', "url('" + data[n]['link'] + "')");      
     }
   });

@@ -88,7 +88,7 @@
                                                         <h3>República Centro</h3>
                                                     </div>
                                                     <div class="panel-body text-center">                                                    
-                                                        <p><strong id='rvagas1'>Carregado</strong></p>                                                    
+                                                        <!--<p><strong id='rvagas1'>Carregado</strong></p>-->                                                    
                                                     </div>
                                                     <ul class="list-group text-justify">
                                                         
@@ -119,7 +119,7 @@
                                                         <h3>República Ingá</h3>
                                                     </div>
                                                     <div class="panel-body text-center">
-                                                        <p><strong id='rvagas2' class="">Carregado</strong></p>
+                                                        <!--<p><strong id='rvagas2' class="">Carregado</strong></p>-->
                                                     </div>
                                                     <ul class="list-group text-justify">
                                                     <li class="list-group-item text-danger"><i class="fa fa-fort-awesome"></i> Vagas Restantes: <strong id='r2total'>0</strong > Vagas</li>
@@ -144,7 +144,7 @@
                                                         <h3>Praia Vermelha</h3>
                                                     </div>
                                                     <div class="panel-body text-center">
-                                                        <p><strong id='rvagas3'>Carregado</strong></p>
+                                                        <!--<p><strong id='rvagas3'>Carregado</strong></p>-->
                                                     </div>
                                                     <ul class="list-group text-justify">
                                                         <li class="list-group-item text-danger"><i class="fa fa-fort-awesome"></i> Vagas Restantes: <strong id='r3total'>0</strong > Vagas</li>
