@@ -28,10 +28,9 @@ function listar_fotos_capa(onde, n) {
       'status': "12",
       'id_republica': '4'
     },
-    cache: false,
-    dataType: "JSON", //OBS só usar se o php estiver devolvendo um Json ex: echo json_encode();  
+    cache: true,    
     success: function (data) {
-      $(onde).css('background-image', "url('" + data[n]['link'] + "' no-repeat center center fixed");
+      $(onde).css('background-image', "url('" + data[n]['link'] + "')");      
     }
   });
 }
@@ -52,7 +51,7 @@ function listar_fotos(id_republica) {
       'status': "12",
       'id_republica': id_republica
     },
-    cache: false,
+    cache: true,
     dataType: "JSON", //OBS só usar se o php estiver devolvendo um Json ex: echo json_encode();  
     success: function (data) {
       //Conta e manda pro img html as imagens

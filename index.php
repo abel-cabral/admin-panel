@@ -95,11 +95,10 @@
 	<!----------------Fim do SKD--------------------!-->
 
 
-	<body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4" onload="listar_fotos_capa('body',1);//tela Principal">
-	<!--Aqui entra o fundo, como adtributo css-->
-	<div class="row bg"></div>
+	<body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4" onload="listar_fotos_capa('.bga',1);//tela Principal">
+		<!--Aqui entra o fundo, como adtributo css-->
+		<div class="bga"></div>
 
-	<div class="bg"></div>
 		<!-- Navigation -->
 		<nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
 			<div class="container-fluid">
@@ -162,7 +161,9 @@
 											<div style="font-size:11em; color:#9e0c22">
 												<i class="fa fa-fort-awesome castelo"></i>
 											</div>
-											<h3>República <br>Praia Vermelha</br></h3>
+											<h3>República
+												<br>Praia Vermelha</br>
+											</h3>
 										</div>
 
 										<a class="btn btn-lg btn-block btn-success">Conhecer</a>
@@ -191,7 +192,7 @@
 					<!-- Services Section -->
 					<section id="services">
 						<div class="container">
-							<div class="row text-center">
+							<div class="row">
 
 								<div class="col-sm-6">
 									<span class="fa-stack fa-4x">
@@ -201,7 +202,6 @@
 									<h4 class="service-heading">Wi-Fi</h4>
 									<p class="text-muted">Disponibilizamos 240 MB de Intenet para você utilizar como quiser.</p>
 								</div>
-
 								<div class="col-sm-6">
 									<span class="fa-stack fa-4x">
 										<i class="fa fa-circle fa-stack-2x text-primary"></i>
@@ -210,15 +210,17 @@
 									<h4 class="service-heading">Ambiente</h4>
 									<p class="text-muted"> Oferecemos repúblicas com área de laser e espaço de convívio.</p>
 								</div>
+							</div>
 
+							<div class="row">
 								<div class="col-sm-6">
 									<span class="fa-stack fa-4x">
 										<i class="fa fa-circle fa-stack-2x text-primary"></i>
 										<i class="glyphicon glyphicon-bed"></i>
 									</span>
 									<h4 class="service-heading">Quartos</h4>
-									<p class="text-muted">Oferecemos quartos femininos e masculinos onde você poderá descansar confortávelmente. Todos equipados
-										com frigobar e armário individual com chave.</p>
+									<p class="text-muted">Oferecemos quartos femininos e masculinos onde você poderá descansar confortávelmente. Todos equipados com frigobar
+										e armário individual com chave.</p>
 								</div>
 
 								<div class="col-sm-6">
@@ -229,7 +231,8 @@
 									<h4 class="service-heading">Sala de Estudos</h4>
 									<p class="text-muted">Contamos com uma sala de estudos equipada com computador para que você possa se dedicar sem precisar sair de casa.</p>
 								</div>
-
+							</div>
+							<div class="row">
 								<div class="col-sm-6">
 									<span class="fa-stack fa-4x">
 										<i class="fa fa-circle fa-stack-2x text-primary"></i>
