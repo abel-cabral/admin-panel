@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <input type='hidden' value='1' name='status'>;
+            <input type='hidden' value='1' name='status'>
 
             <!-- Button -->
             <div class="form-group">
