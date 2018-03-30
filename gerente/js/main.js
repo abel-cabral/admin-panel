@@ -131,7 +131,7 @@ $(document).ready(function () {
               "&status=9&id_republica=" + id + "&dm=" + dm + "&df=" + df + "&qm=" + qm + "&qf=" + qf, //Captura todos os valores no FORM e faz um OBJ.
             cache: false,
             success: function (data) {
-              if (data[0] == 's') {                
+              if (data[0] == 's') {
                 swal("Sucesso!", 'Quantidade de vagas e preço atualizados.', "success");
               } else {
                 swal("Atenção!", 'PREÇO ATUALIZADO. Mas houve erro ao atualizar suas vagas, é necessário oferecer mais vagas do que o nº de residentes atual.', "warning");
@@ -141,8 +141,8 @@ $(document).ready(function () {
               })
             }
           });
-        } 
-      });      
+        }
+      });
     });
   });
   //------------------------------------------------------------------------------------------- FIM DA ATUALIZAÇÃO DE VAGAS OFERECIDAS
@@ -210,7 +210,7 @@ $(document).ready(function () {
     ($.fn.gravar_imagem = function (e, teste_sql) {
 
       //Variavel recebe nome aleatório
-      nome_img = guid() + file.name;      
+      nome_img = guid() + file.name;
 
       //Create a Storage ref
       var storageRef = firebase.storage().ref("r2/" + nome_img);
@@ -357,6 +357,7 @@ $(document).ready(function () {
 
 //Listar Moradores
 function todos_Moradores() {
+
   $.ajax({
     type: "GET",
     url: "./php/funcoes.php",
@@ -390,6 +391,26 @@ function todos_Moradores() {
       $("#total_de_moradores").html(data.length); //E Coloca-lo na tela
     }
   });
+}
+
+
+//-------------------------------------------------------------------------------Listar Moradores Pesquisa de Nome
+function filtrarMorador() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("minhaEntrada");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("target");//
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
 }
 
 //TODAS AS VAGAS + Todas as Funções de dados
@@ -441,14 +462,14 @@ function vagas_tipo(sexo, disparo) {
       //Como estamos usando 1 ajax pra receber a mesma função 4 vezes com parametros diferente, fiz uso de testes para identificar a ordem de execução
 
       //Vagas Duplas
-      if (data[1]["quarto"] == "Duplo") {   
+      if (data[1]["quarto"] == "Duplo") {
         $.each(data, function (contador) {
           //Isso aqui é basicamente um IF em linha, assim economizo linhas
           data[contador]["sexo"] == "M" ?
             $("#r" + contador + "M2").html(data[contador]["dupla"]) :
             $("#r" + contador + "F2").html(data[contador]["dupla"]);
-        });      
-      //Vagas Quadruplas  
+        });
+        //Vagas Quadruplas  
       } else {
         $.each(data, function (contador) {
           data[contador]["sexo"] == "M" ?
@@ -473,11 +494,11 @@ function vagas_porcento(lancar) {
     cache: false,
     dataType: "JSON",
     success: function (data) {
-          
-        $("#r" + lancar + "total").html(data["soma"]);//Lança o Valor das vagas ainda restantes no banco de dados.
-             
-        $("#rvagas" + lancar).html(parseInt(solucao_2) + "% Ocupada");
-      
+
+      $("#r" + lancar + "total").html(data["soma"]); //Lança o Valor das vagas ainda restantes no banco de dados.
+
+      $("#rvagas" + lancar).html(parseInt(solucao_2) + "% Ocupada");
+
     }
   });
 }
@@ -525,4 +546,3 @@ function guid() {
   }
   return s4() + s4();
 }
-

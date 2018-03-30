@@ -1,10 +1,10 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 class Conexao{
-    private $usuario = "";
+    private $usuario = "root";
     private $senha = "";
-    private $caminho = "";
-    private $banco = "";
+    private $caminho = "localhost";
+    private $banco = "republica";
     private $con;
     
     public function __construct(){
