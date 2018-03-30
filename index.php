@@ -279,6 +279,9 @@
 									</span>
 									<h4 class="service-heading">Quartos</h4>
 									<p class="text-muted">Quartos femininos e masculinos confortáveis com frigobar e armário individual com chave.</p>
+<<<<<<< HEAD
+>>>>>>> 47e577bbe73d048fb73fff6fc9320357718f0696
+=======
 >>>>>>> 47e577bbe73d048fb73fff6fc9320357718f0696
 								</div>
 							</div>
@@ -388,6 +391,9 @@
 
 
 
+<<<<<<< HEAD
 	</body>
 
+=======
+>>>>>>> 47e577bbe73d048fb73fff6fc9320357718f0696
 </html>
