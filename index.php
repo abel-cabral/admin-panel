@@ -1,61 +1,3 @@
-<<<<<<< HEAD
-<?php
-    include_once('./php/verifica_sessao.php');    
-?>
-	<!DOCTYPE html>
-	<html lang="pt-br">
-
-	<!--Header-->
-	<?php include_once('./php/header.php');?>
-	<!--Header-->
-
-	<body class="adminbody">
-
-		<div id="main">
-
-			<!-- top bar navigation -->
-			<?php  
-        include_once('./php/top_side.php');//topo
-        include_once('./php/left_side.php');//Barra Esquerda    
-    ?>
-
-
-
-			<div class="content-page">
-				<!-- Start content -->
-				<div class="content">
-					<div class="container-fluid" id="conteudo">
-						<div class="row">
-							<div class="col-xl-12">
-								<div class="breadcrumb-holder">
-									<h1 class="main-title float-left">Dashboard</h1>
-									<ol class="breadcrumb float-right">
-										<li class="breadcrumb-item">Início</li>
-										<li class="breadcrumb-item active">Dashboard</li>
-									</ol>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-						</div>
-						<!-- end row -->
-
-						<div class="row">
-							<div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-								<div class="card-box noradius noborder bg-default">
-									<i class="fa fa-file-text-o float-right text-white"></i>
-									<h6 class="text-white text-uppercase m-b-20">Cadastros</h6>
-									<h1 class="m-b-20 text-white counter">1,587</h1>
-									<span class="text-white">15 Novos Hoje</span>
-								</div>
-							</div>
-
-							<div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-								<div class="card-box noradius noborder bg-warning">
-									<i class="fa fa-bar-chart float-right text-white"></i>
-									<h6 class="text-white text-uppercase m-b-20">Visitantes</h6>
-									<h1 class="m-b-20 text-white counter">41</h1>
-									<span class="text-white">25% Que em Fevereiro</span>
-=======
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" lang="pt-br">
 
@@ -279,34 +221,8 @@
 									</span>
 									<h4 class="service-heading">Quartos</h4>
 									<p class="text-muted">Quartos femininos e masculinos confortáveis com frigobar e armário individual com chave.</p>
-<<<<<<< HEAD
->>>>>>> 47e577bbe73d048fb73fff6fc9320357718f0696
-=======
->>>>>>> 47e577bbe73d048fb73fff6fc9320357718f0696
 								</div>
-							</div>
 
-<<<<<<< HEAD
-							<div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-								<div class="card-box noradius noborder bg-info">
-									<i class="fa fa-user-o float-right text-white"></i>
-									<h6 class="text-white text-uppercase m-b-20">Moradores</h6>
-									<h1 class="m-b-20 text-white counter">60</h1>
-									<span class="text-white">Moradores Ativos</span>
-								</div>
-							</div>
-
-							<div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-								<div class="card-box noradius noborder bg-danger">
-									<i class="fa fa-bell-o float-right text-white"></i>
-									<h6 class="text-white text-uppercase m-b-20">Remoções</h6>
-									<h1 class="m-b-20 text-white counter">58</h1>
-									<span class="text-white">Moradores Saíram</span>
-								</div>
-							</div>
-						</div>
-						<!-- end row -->
-=======
 								<div class="col-sm-6">
 									<span class="fa-stack fa-4x">
 										<i class="fa fa-circle fa-stack-2x text-primary"></i>
@@ -340,60 +256,43 @@
 				</div>
 			</div>
 			<hr>
->>>>>>> 47e577bbe73d048fb73fff6fc9320357718f0696
 
-
-
-						<div class="container-fluid">
-							<div class="embed-responsive embed-responsive-16by9">
-								<iframe scrolling="yes" style="overflow: hidden;"  class="embed-responsive-item" src="http://www.republicadoclaudinho.com/" allowfullscreen></iframe>
-							</div>
-
-
-						</div>
-						<!-- end row -->
-
-
-
-
-					</div>
-					<!-- END container-fluid -->
+			<!-- Aqui incluimos o comentários do facebook !-->
+			<li class="timeline-inverted">
+				<div class="intro-lead-in">
+					<h2>Deixe seu Comentário Aqui ;)</h2>
 				</div>
-				<!-- END content -->
-			</div>
-			<!-- END content-page -->
+				<div class="fb-comments" data-href="http://www.republicadoclaudinho.com" data-width="100%" data-numposts="10" data-colorscheme="dark"></div>
+			</li>
 
-			<!--Footer-->
-			<?php
-        include_once('./html/footer.html');
-    ?>
+		</section>
 
-		</div>
-		<!-- JAVA SCRIPTS -->
-		<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-		<script>
-			// Initialize Firebase
-			var config = {
-				apiKey: "AIzaSyBC5a9iykOq-HHF3wxTgfiqCQUvAALJRfI",
-				authDomain: "republica-ecfe3.firebaseapp.com",
-				databaseURL: "https://republica-ecfe3.firebaseio.com",
-				projectId: "republica-ecfe3",
-				storageBucket: "republica-ecfe3.appspot.com",
-				messagingSenderId: "165737039148"
-			};
-			firebase.initializeApp(config);
-		</script>
+		<!-- jQuery Version 1.11.0 -->
+		<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/jquery-1.11.0.js"></script>
 
-		<?php
-        include_once('./scripts.html');
-    ?>
-			<!-- END Java Script  -->
+		<!-- Bootstrap Core JavaScript -->
+		<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/bootstrap.min.js"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<!-- Plugin JavaScript -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/classie.js"></script>
+		<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/cbpAnimatedHeader.js"></script>
+
+		<!-- Contact Form JavaScript -->
+		<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/jqBootstrapValidation.js"></script>
+		<script src="https://raw.githubusercontent.com/IronSummitMedia/startbootstrap/gh-pages/templates/agency/js/contact_me.js"></script>
 
 
+		<span style="height: 20px; width: 40px; min-height: 20px; min-width: 40px; position: absolute; opacity: 0.85; z-index: 8675309; display: none; cursor: pointer; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAD/Rn+7AAADU0lEQVR42s2WXUhTYRjHz0VEVPRFUGmtVEaFUZFhHxBhsotCU5JwBWEf1EWEEVHQx4UfFWYkFa2biPJiXbUta33OXFtuUXMzJ4bK3Nqay7m5NeZq6h/tPQ+xU20zugjOxR/+7/O8539+5znnwMtNTExwJtMb3L/fiLv3botCSmUjeCaejTOb39AiFothfHxcFIrHY8RksZjBsckJcOIRMfFsHD/SsbExUYpnI8DR0dGUGjSb0byhEJp5Uqg5CTSzc2CQleJbMEj9/ywBcGRkJEk9DQqouEVQT1sK444yWI9UonmTjGqauVLEIlHa9x8lAMbj8SSpp0rwKGMVvg8P46vbg0C7na8z8JsMcgHe7jlEa+edRhiLy8n/TUMfu6EvLElk+U0WtGwrTrdfAGQf5J8iiK4LVzDU28t8JtMSocf8E+l68myaNFXm/6rXslLK7ay5TOunuRvZWpJuvwAYjUaTpOIWoquuAZ219RTaxKYp9BbjycoN5FvL9qH9TBX5rvoGdJythvXYSTxdtRnWylO/ZdqrLsGwszzhWQ593z2KlAwCYCQSSZJ6ehZ0W7bD9VBLgN0NCqr3qR7R2rBrL3pu3Sb/7nDlz2uy6cG0OXk0GTbZXzNp8trsPAQdTj6frlWzN2DcXZGKQQAMh8NJ6rpyHe+PnkCr/CAFdZyvpfpjuvkifLF9wIt1Wwlo0OHie1RvWrKa93RjzfzliTzPKz3ltB0/Tevmwp14wGUgHAzSOoUEwFAolFaaBSuhnslPRkJexUJtZ6v5HtUeLswl33n1BgEY5fvhs9sJ3FAiT+QYyyvoAQJuD0KBAFRTJNAuz5/s3gJgMBhMJwrVFRThM5tY5zUF/A4X1f2fvQTRLCuBreoim0YmAbqNJryvPEXeeq46kaNdkQ/1HCncbJKPs9ZSv2VHGfWsZ2hfkhKAfr8/pdxWKx4wwD69PmVfNSOL+lr2w+gYqHpWDtXt1xQ8AMlWU0e1lqLd/APRHoP8AJqWrQG9gYxcPMsvSJUvAA4MDKTUJ7MZLaVy8v+qT21tcDx/OemePr0RTkNrur4A6PP5xCgBsL+/X4wiQDpuuVxOeL1eMYmYeDY6sOp0z+B0OuHxeEQhxkJMFosJiSO/UinOI/8Pc+l7KKArAT8AAAAASUVORK5CYII=);"></span>
 
-<<<<<<< HEAD
 	</body>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+	<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+	<script src="./js/index.js"></script>
 
-=======
->>>>>>> 47e577bbe73d048fb73fff6fc9320357718f0696
+</body>
+
 </html>
