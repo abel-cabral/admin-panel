@@ -141,7 +141,7 @@ class UsuarioDAO
 
         
         $sql = "UPDATE republicas SET $tipo = ($tipo + 1) WHERE id_republica = $id_republica;";//Ao Deletar devolve +1 em vagas
-        $sql .= "UPDATE moradores SET moradia = NULL WHERE id_morador = $id_morador;";
+        $sql .= "DELETE FROM moradores WHERE id_morador = $id_morador;";
 
         $resultado =  mysqli_multi_query($this->conexao->getCon(), $sql);    
     }
