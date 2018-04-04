@@ -31,7 +31,7 @@ elseif($status == '2'){
 //Cadastrar Morador
 elseif($status == '3'){
     $usuarios_index = new UsuarioDAO();
-    $buscar = $usuarios_index->cadastro(transformar($_POST['nome']), $_POST['sexo'], $_POST['tel'], transformar($_POST['curso']), $_POST['mensalidade'], $_POST['quarto']);     
+    $buscar = $usuarios_index->cadastro(transformar($_POST['nome']), $_POST['sexo'], $_POST['tel'], transformar($_POST['curso']), $_POST['quarto']);     
     
    //Como não há um array envolvido, podemos devolver só com um echo da variavel;   
    echo $buscar;
@@ -55,8 +55,7 @@ elseif($status == '4'){
                 'nome' => $linha['nome'],
                 'sexo' => $linha['sexo'],
                 'telefone' => $linha['telefone'],
-                'curso' => $linha['curso'],
-                'mensalidade' => $linha['mensalidade'],
+                'curso' => $linha['curso'],                
                 'quarto' => $linha['quarto'],
                 'nome_republica' => $linha['nome_republica'],
                 'moradia' => $linha['moradia'],
@@ -95,8 +94,7 @@ elseif($status == '6'){
                 'nome' => $linha['nome'],
                 'sexo' => $linha['sexo'],
                 'telefone' => $linha['telefone'],
-                'curso' => $linha['curso'],
-                'mensalidade' => $linha['mensalidade'],
+                'curso' => $linha['curso'],                
                 'quarto' => $linha['quarto'],
                 'nome_republica' => $linha['nome_republica'],                                
                 'valor_quarto' => $linha['valor_quarto'],
@@ -132,8 +130,7 @@ elseif($status == '7'){
                     'nome' => $linha['nome'],
                     'sexo' => $linha['sexo'],
                     'telefone' => $linha['telefone'],
-                    'curso' => $linha['curso'],                      
-                    'mensalidade' => $linha['mensalidade'],
+                    'curso' => $linha['curso'],                                          
                     'quarto' => $linha['tipo_quarto'],
                     'nome_republica' => $linha['nome_republica'],                                
                     'valor_quarto' => $linha['valor_quarto'],
@@ -169,8 +166,7 @@ elseif($status == '8'){
                     'nome' => $linha['nome'],
                     'sexo' => $linha['sexo'],
                     'telefone' => $linha['telefone'],
-                    'curso' => $linha['curso'],
-                    'mensalidade' => $linha['mensalidade'],
+                    'curso' => $linha['curso'],                    
                     'quarto' => $linha['tipo_quarto'],                                                    
                     'nome_republica' => $linha['nome_republica'],                                
                     'valor_quarto' => $linha['valor_quarto'],

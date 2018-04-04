@@ -27,7 +27,7 @@ class UsuarioDAO
     }
 
     //Grava Novos Moradores
-    public function cadastro($nome, $sexo, $tel, $curso, $mensalidade, $quarto)
+    public function cadastro($nome, $sexo, $tel, $curso, $quarto)
     {
 
         $republica;
@@ -82,7 +82,7 @@ class UsuarioDAO
          
         if($linha[$tipo] > '0'){
             $sql = "UPDATE republicas SET $tipo = $tipo - 1 WHERE id_republica = $republica;";//Ao add morador ele subtrair o valor de 1 vaga        
-            $sql .= "INSERT INTO moradores values (default, '$nome', '$sexo', '$tel', '$curso', '$mensalidade', '$quarto','$republica');";
+            $sql .= "INSERT INTO moradores values (default, '$nome', '$sexo', '$tel', '$curso', '$quarto','$republica');";
             $resultado =  mysqli_multi_query($this->conexao->getCon(), $sql);                   
             return 'sucesso';            
         }else{
@@ -147,9 +147,9 @@ class UsuarioDAO
     }
 
     //Atualizar Morador
-    public function atualizar_morador($nome, $sexo, $tel, $curso, $mensalidade, $quarto, $republica, $id_morador)
+    public function atualizar_morador($nome, $sexo, $tel, $curso, $quarto, $republica, $id_morador)
     {
-        $sql = "UPDATE moradores set nome='$nome', sexo='$sexo', telefone='$tel', curso='$curso', mensalidade='$mensalidade', quarto='$quarto',republica='$republica WHERE id_morador='$id_morador'";
+        $sql = "UPDATE moradores set nome='$nome', sexo='$sexo', telefone='$tel', curso='$curso', quarto='$quarto',republica='$republica WHERE id_morador='$id_morador'";
         $resultado = mysqli_query($this
             ->conexao
             ->getCon() , $sql);

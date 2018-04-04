@@ -368,6 +368,13 @@ function todos_Moradores() {
     dataType: "JSON",
     success: function (data) {
       $.each(data, function (contador) {
+        //O sexo vem como M ou F vou passar pro nome completo
+        if(data[contador]["sexo"] == 'F'){
+          data[contador]["sexo_completo"] = " Feminino";
+        }else{
+          data[contador]["sexo_completo"] = " Masculino";
+        }
+
         //TEM QUE USAR O $.EACH PARA CONTAR O ARRAY, SE NAO IMPOSSÍVEL ESCREVER
         var template = $("#template").html(); //Onde irá escrever
         Mustache.parse(template); // Opcional
@@ -375,8 +382,8 @@ function todos_Moradores() {
           id: data[contador]["id_morador"],
           nome: data[contador]["nome"],
           sexo: data[contador]["sexo"].toLowerCase(),
-          telefone: data[contador]["telefone"],
-          mensalidade: data[contador]["mensalidade"],
+          sexo_completo: data[contador]["sexo_completo"],
+          telefone: data[contador]["telefone"],          
           quarto: data[contador]["tipo_quarto"],
           curso: data[contador]["curso"],
           republica: data[contador]["nome_republica"],
