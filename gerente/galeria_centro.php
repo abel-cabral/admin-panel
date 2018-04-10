@@ -13,6 +13,11 @@ include_once ('./php/verifica_sessao.php');
   <body class="adminbody" onload="listar_fotos(1);">
     <!--Aqui chamamos a função e passamos o id da republica que ela deve buscar as fotos-->
     <div id="main">
+    <!-- top bar navigation -->
+			<?php  
+        include_once('./php/top_side.php');//topo
+        include_once('./php/left_side.php');//Barra Esquerda    
+    ?>
       <div class="content-page">
         <!-- Start content -->
         <div class="content">
@@ -46,15 +51,13 @@ include_once ('./php/verifica_sessao.php');
                     </h3>
                     As imagens alteradas aqui são espelhadas no site
                   </div>
+
                   <div class="card-body">
                     <div class="row fotos_republicas col d-flex justify-content-center" data-galeria="1" id='fotos_republicas'>
-
-
-
                       <!--Loop com as imagens no banco de dados-->
                       <script id="loop_fotos" type="x-tmpl-mustache">
                         <div class="card cartao" style="width:400px;">
-                          <img class="card-img-top" src="{{link}}" alt="Card image" style="width:100%;height:100%;">
+                          <img class="card-img-top" src="{{link}}" alt="Card image" style="width:100%;height:72%;">
                           <div class="card-body">
                             <h4 class="card-title">{{descricao}}</h4>
                             <p class="card-text"></p>
@@ -62,9 +65,11 @@ include_once ('./php/verifica_sessao.php');
                           </div>
                         </div>
                       </script>
-                      <!--Fim do Looping-->                     
+                      <!--Fim do Looping-->
                     </div>
                   </div>
+                  <div class="clearfix"></div>
+
                 </div>
               </div>
               <!-- Fim da galeria-->
